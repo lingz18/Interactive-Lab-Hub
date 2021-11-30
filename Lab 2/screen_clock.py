@@ -95,7 +95,7 @@ i2c = board.I2C()  # uses board.SCL and board.SDA
 mpu = adafruit_mpu6050.MPU6050(i2c)
 mpu.accelerometer_range = adafruit_mpu6050.Range.RANGE_2_G
 mpu.gyro_range = adafruit_mpu6050.GyroRange.RANGE_250_DPS
-
+maxAccZ = 0
 
 while True:
     # Draw a black filled box to clear the image.
@@ -109,7 +109,10 @@ while True:
     # timer = strftime("%H:%M:%S")
     acc = str("Acc: %.2f, %.2f, %.2f " % (mpu.acceleration))
     gyr = str("Gyro: %.2f, %.2f, %.2f" % (mpu.gyro))
-    print(type(mpu.acceleration))
+    currAcc = double(mpu.accleration[2])
+
+    if currAcc > maxAccZ:
+        maxAccZ = currAcc
 
     font = getFont(20)
     
@@ -119,11 +122,16 @@ while True:
 
     draw.text((x_1, y_1), gyr, font=font, fill="#FFFFFF")
 
-    font = getFont(18)
-    x_2 = width/2 - font.getsize(acc)[0]/2
-    y_1 -= font.getsize(acc)[1]
-    draw.text((x_2, y_1), acc, font=font, fill="#FFFFFF")
+    # font = getFont(18)
+    # x_2 = width/2 - font.getsize(acc)[0]/2
+    # y_1 -= font.getsize(acc)[1]
+    # draw.text((x_2, y_1), acc, font=font, fill="#FFFFFF")
 
+    strMaxAccZ = 'maxAcc: ' + str(maxAccZ)
+    x_3 = width/2 - font.getsize(strMaxAccZ)[0]/2
+    y_1 = height/2 - font.getsize(strMaxAccZ)[1]/2
+
+    draw.text((x_3, y_1), strMaxAccZ, font=font, fill="#FFFFFF")
 
     # Display image.
     disp.image(image, rotation)
