@@ -111,7 +111,7 @@ while True:
     gyr = str("%.2f, %.2f, %.2f)" % (mpu.gyro))
 
 
-    font = getFont(44)
+    font = getFont(20)
     
     x_1 = width/2 - font.getsize(gyr)[0]/2
     y_1 = height/2 - font.getsize(gyr)[1]/2
