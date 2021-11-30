@@ -108,7 +108,7 @@ while True:
     # date = strftime("%m/%d/%Y")
     # timer = strftime("%H:%M:%S")
     # acc = str("(%.2f, %.2f, %.2f " % (mpu.acceleration))
-    gyr = str("%.2f, %.2f, %.2f)" % (mpu.gyro))
+    gyr = str("%.2f, %.2f, %.2f" % (mpu.gyro))
 
 
     font = getFont(20)
