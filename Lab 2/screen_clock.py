@@ -129,9 +129,9 @@ while True:
 
     strMaxAccZ = 'maxAcc: ' + str(maxAccZ)
     x_3 = width/2 - font.getsize(strMaxAccZ)[0]/2
-    y_1 = height/2 - font.getsize(strMaxAccZ)[1]/2
+    y_2 = height/2 - font.getsize(strMaxAccZ)[1]/2
 
-    draw.text((x_3, y_1), strMaxAccZ, font=font, fill="#FFFFFF")
+    draw.text((x_3, y_2), strMaxAccZ, font=font, fill="#FFFFFF")
 
     # Display image.
     disp.image(image, rotation)
