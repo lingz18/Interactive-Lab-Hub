@@ -109,7 +109,7 @@ while True:
     # timer = strftime("%H:%M:%S")
     acc = str("Acc: %.2f, %.2f, %.2f " % (mpu.acceleration))
     gyr = str("Gyro: %.2f, %.2f, %.2f" % (mpu.gyro))
-    currAcc = float(mpu.accleration[2])
+    currAcc = float(mpu.acceleration[2])
 
     if currAcc > maxAccZ:
         maxAccZ = currAcc
