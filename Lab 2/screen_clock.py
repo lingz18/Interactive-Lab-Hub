@@ -119,8 +119,10 @@ while True:
 
     font = getFont(18)
     x_2 = width/2 - font.getsize(acc)[0]/2
-    y_1 -= font.getsize(date)[1]
+    y_1 -= font.getsize(acc)[1]
     draw.text((x_2, y_1), acc, font=font, fill="#FFFFFF")
+
+
     # Display image.
     disp.image(image, rotation)
     time.sleep(0.001)
