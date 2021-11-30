@@ -107,8 +107,8 @@ while True:
     ### render clock
     # date = strftime("%m/%d/%Y")
     # timer = strftime("%H:%M:%S")
-    acc = str("Acceleration: ","(%.2f, %.2f, %.2f " % (mpu.acceleration))
-    gyr = str("Gyro: ","%.2f, %.2f, %.2f" % (mpu.gyro))
+    acc = str("Acceleration: %.2f, %.2f, %.2f " % (mpu.acceleration))
+    gyr = str("Gyro: %.2f, %.2f, %.2f" % (mpu.gyro))
 
 
     font = getFont(20)
