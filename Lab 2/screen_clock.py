@@ -9,6 +9,7 @@ from numpy import random
 
 import board
 
+import adafruit_mpu6050
 from adafruit_rgb_display.rgb import color565
 import adafruit_rgb_display.st7789 as st7789
 import webcolors
