@@ -107,14 +107,16 @@ while True:
     ### render clock
     # date = strftime("%m/%d/%Y")
     # timer = strftime("%H:%M:%S")
-    acc = str("(%.2f, %.2f, %.2f " % (mpu.acceleration))
-    gyr = str("%.2f, %.2f, %.2f" % (mpu.gyro))
+    acc = str("Acceleration: ","(%.2f, %.2f, %.2f " % (mpu.acceleration))
+    gyr = str("Gyro: ","%.2f, %.2f, %.2f" % (mpu.gyro))
 
 
     font = getFont(20)
     
+
     x_1 = width/2 - font.getsize(gyr)[0]/2
     y_1 = height/2 - font.getsize(gyr)[1]/2
+
     draw.text((x_1, y_1), gyr, font=font, fill="#FFFFFF")
 
     font = getFont(18)
