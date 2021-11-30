@@ -115,7 +115,7 @@ while True:
     
     x_1 = width/2 - font.getsize(gyr)[0]/2
     y_1 = height/2 - font.getsize(gyr)[1]/2
-    draw.text((x_1, y_1), timer, font=font, fill="#FFFFFF")
+    draw.text((x_1, y_1), gyr, font=font, fill="#FFFFFF")
 
     # font = getFont(18)
     # x_2 = width/2 - font.getsize(date)[0]/2
