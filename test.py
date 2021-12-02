@@ -111,8 +111,8 @@ while True:
     gyr = str("Gyro: %.2f, %.2f, %.2f" % (mpu.gyro))
     currAcc = round(mpu.acceleration[2],2)
 
-    if currAcc < MinAccZ:
-        MinAccZ = currAcc
+    if currAcc < minAccZ:
+        minAccZ = currAcc
 
     font = getFont(20)
     
@@ -127,11 +127,11 @@ while True:
     # y_1 -= font.getsize(acc)[1]
     # draw.text((x_2, y_1), acc, font=font, fill="#FFFFFF")
 
-    strMinAccZ = 'MinAcc: ' + str(MinAccZ)
-    x_3 = width/2 - font.getsize(strMinAccZ)[0]/2
-    y_1 += font.getsize(strMinAccZ)[1]
+    strminAccZ = 'MinAcc: ' + str(minAccZ)
+    x_3 = width/2 - font.getsize(strminAccZ)[0]/2
+    y_1 += font.getsize(strminAccZ)[1]
 
-    draw.text((x_3, y_1), strMinAccZ, font=font, fill="#FFFFFF")
+    draw.text((x_3, y_1), strminAccZ, font=font, fill="#FFFFFF")
 
     # Display image.
     disp.image(image, rotation)
