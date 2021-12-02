@@ -5,7 +5,7 @@ import board
 from PIL import Image, ImageDraw, ImageFont
 import adafruit_rgb_display.st7789 as st7789
 from time import strftime, sleep
-from numpy import random, arctan2, sqrt
+from numpy import random, arctan2, sqrt, pi
 import board
 
 import adafruit_mpu6050
@@ -114,8 +114,8 @@ while True:
     print(accX, accY, accZ)
     # if currAcc < minAccZ:
     #     minAccZ = currAcc
-    pitch = -(arctan2(accX, sqrt(accY**2 + accZ**2))*180.0)/numpy.pi
-    roll = (arctan2(accY, accZ)*180.0)/numpy.pi
+    pitch = -(arctan2(accX, sqrt(accY**2 + accZ**2))*180.0)/pi
+    roll = (arctan2(accY, accZ)*180.0)/pi
 
     if pitch>35 or pitch<-35 or roll>35 or roll<-35:
         fall = 1 
