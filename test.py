@@ -113,7 +113,7 @@ while True:
 
     # if currAcc < minAccZ:
     #     minAccZ = currAcc
-    pitch = -(arctan2(normAccel.XAxis, sqrt(normAccel.YAxis*normAccel.YAxis + normAccel.ZAxis*normAccel.ZAxis))*180.0)/M_PI;
+    # pitch = -(arctan2(normAccel.XAxis, sqrt(normAccel.YAxis*normAccel.YAxis + normAccel.ZAxis*normAccel.ZAxis))*180.0)/M_PI;
 
 
     font = getFont(20)
