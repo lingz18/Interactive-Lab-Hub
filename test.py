@@ -5,7 +5,7 @@ import board
 from PIL import Image, ImageDraw, ImageFont
 import adafruit_rgb_display.st7789 as st7789
 from time import strftime, sleep
-from numpy import random
+from numpy import random, arctan2
 
 import board
 
@@ -109,10 +109,13 @@ while True:
     # timer = strftime("%H:%M:%S")
     acc = str("Acc: %.2f, %.2f, %.2f " % (mpu.acceleration))
     gyr = str("Gyro: %.2f, %.2f, %.2f" % (mpu.gyro))
-    currAcc = round(mpu.acceleration[2],2)
+    [accX, accY, accZ] = round(mpu.acceleration,2)
+    print(accX, accY, accZ)
 
-    if currAcc < minAccZ:
-        minAccZ = currAcc
+    # if currAcc < minAccZ:
+    #     minAccZ = currAcc
+    # pitch = -(arctan2(normAccel.XAxis, sqrt(normAccel.YAxis*normAccel.YAxis + normAccel.ZAxis*normAccel.ZAxis))*180.0)/M_PI;
+
 
     font = getFont(20)
     
@@ -135,4 +138,4 @@ while True:
 
     # Display image.
     disp.image(image, rotation)
-    time.sleep(0.001)
+    time.sleep(0.1)
