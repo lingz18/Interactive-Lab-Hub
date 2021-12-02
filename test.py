@@ -110,20 +110,15 @@ while True:
     # timer = strftime("%H:%M:%S")
     acc = str("Acc: %.2f, %.2f, %.2f " % (mpu.acceleration))
     gyr = str("Gyro: %.2f, %.2f, %.2f" % (mpu.gyro))
-    accX, accY, accZ= round(mpu.acceleration[0],2), round(mpu.acceleration[1],2), round(mpu.acceleration[2],2)
-    print(accX, accY, accZ)
+    # accX, accY, accZ= round(mpu.acceleration[0],2), round(mpu.acceleration[1],2), round(mpu.acceleration[2],2)
+    accX, accY, accZ= mpu.acceleration[0], mpu.acceleration[1], mpu.acceleration[2]
+    # print(accX, accY, accZ)
     # if currAcc < minAccZ:
     #     minAccZ = currAcc
     pitch = -(arctan2(accX, sqrt(accY**2 + accZ**2))*180.0)/pi
     roll = (arctan2(accY, accZ)*180.0)/pi
 
     staticg = sqrt(accX**2+accY**2+accZ**2)
-    print(staticg)
-
-    # if pitch>35 or pitch<-35 or roll>35 or roll<-35:
-    #     fall = 1 
-    #     print("Fall is detected")
-
     font = getFont(20)
     
 
