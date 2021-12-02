@@ -6,7 +6,6 @@ from PIL import Image, ImageDraw, ImageFont
 import adafruit_rgb_display.st7789 as st7789
 from time import strftime, sleep
 from numpy import random, arctan2
-
 import board
 
 import adafruit_mpu6050
@@ -96,6 +95,8 @@ mpu = adafruit_mpu6050.MPU6050(i2c)
 mpu.accelerometer_range = adafruit_mpu6050.Range.RANGE_8_G
 mpu.gyro_range = adafruit_mpu6050.GyroRange.RANGE_250_DPS
 minAccZ = 0
+fall = 0
+
 
 while True:
     # Draw a black filled box to clear the image.
@@ -113,8 +114,12 @@ while True:
     print(accX, accY, accZ)
     # if currAcc < minAccZ:
     #     minAccZ = currAcc
-    # pitch = -(arctan2(normAccel.XAxis, sqrt(normAccel.YAxis*normAccel.YAxis + normAccel.ZAxis*normAccel.ZAxis))*180.0)/M_PI;
+    pitch = -(arctan2(accX, sqrt(accY**2 + accZ**2))*180.0)/numpy.pi
+    roll = (arctan2(accY, accZ)*180.0)/numpy.pi
 
+    if pitch>35 or pitch<-35 or roll>35 or roll<-35:
+        fall = 1 
+        print("Fall is detected")
 
     font = getFont(20)
     
