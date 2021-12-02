@@ -20,7 +20,7 @@ cs_pin = digitalio.DigitalInOut(board.CE0)
 dc_pin = digitalio.DigitalInOut(board.D25)
 reset_pin = None
 
-# Config for display baudrate (default max is 24mhz):
+# Config for display baudrate (default Min is 24mhz):
 BAUDRATE = 64000000
 
 # Setup SPI bus using hardware SPI:
@@ -95,7 +95,7 @@ i2c = board.I2C()  # uses board.SCL and board.SDA
 mpu = adafruit_mpu6050.MPU6050(i2c)
 mpu.accelerometer_range = adafruit_mpu6050.Range.RANGE_8_G
 mpu.gyro_range = adafruit_mpu6050.GyroRange.RANGE_250_DPS
-maxAccZ = 0
+minAccZ = 0
 
 while True:
     # Draw a black filled box to clear the image.
@@ -111,8 +111,8 @@ while True:
     gyr = str("Gyro: %.2f, %.2f, %.2f" % (mpu.gyro))
     currAcc = round(mpu.acceleration[2],2)
 
-    if currAcc > maxAccZ:
-        maxAccZ = currAcc
+    if currAcc < MinAccZ:
+        MinAccZ = currAcc
 
     font = getFont(20)
     
@@ -127,11 +127,11 @@ while True:
     # y_1 -= font.getsize(acc)[1]
     # draw.text((x_2, y_1), acc, font=font, fill="#FFFFFF")
 
-    strMaxAccZ = 'maxAcc: ' + str(maxAccZ)
-    x_3 = width/2 - font.getsize(strMaxAccZ)[0]/2
-    y_1 += font.getsize(strMaxAccZ)[1]
+    strMinAccZ = 'MinAcc: ' + str(MinAccZ)
+    x_3 = width/2 - font.getsize(strMinAccZ)[0]/2
+    y_1 += font.getsize(strMinAccZ)[1]
 
-    draw.text((x_3, y_1), strMaxAccZ, font=font, fill="#FFFFFF")
+    draw.text((x_3, y_1), strMinAccZ, font=font, fill="#FFFFFF")
 
     # Display image.
     disp.image(image, rotation)
