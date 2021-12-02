@@ -119,6 +119,9 @@ while True:
     roll = (arctan2(accY, accZ)*180.0)/pi
 
     staticg = sqrt(accX**2+accY**2+accZ**2)
+    print(staticg)
+
+
     font = getFont(20)
     
 
