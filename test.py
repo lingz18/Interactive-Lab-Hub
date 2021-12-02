@@ -109,12 +109,11 @@ while True:
     # timer = strftime("%H:%M:%S")
     acc = str("Acc: %.2f, %.2f, %.2f " % (mpu.acceleration))
     gyr = str("Gyro: %.2f, %.2f, %.2f" % (mpu.gyro))
-    [accX, accY, accZ] = round(mpu.acceleration,2)
-    print(accX, accY, accZ)
+    accX, accY, accZ= round(mpu.acceleration[0],2), round(mpu.acceleration[1],2), round(mpu.acceleration[2],2)
 
     # if currAcc < minAccZ:
     #     minAccZ = currAcc
-    # pitch = -(arctan2(normAccel.XAxis, sqrt(normAccel.YAxis*normAccel.YAxis + normAccel.ZAxis*normAccel.ZAxis))*180.0)/M_PI;
+    pitch = -(arctan2(normAccel.XAxis, sqrt(normAccel.YAxis*normAccel.YAxis + normAccel.ZAxis*normAccel.ZAxis))*180.0)/M_PI;
 
 
     font = getFont(20)
@@ -138,4 +137,4 @@ while True:
 
     # Display image.
     disp.image(image, rotation)
-    time.sleep(0.1)
+    time.sleep(0.001)
