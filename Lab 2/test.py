@@ -93,7 +93,7 @@ reset = True
 
 i2c = board.I2C()  # uses board.SCL and board.SDA
 mpu = adafruit_mpu6050.MPU6050(i2c)
-mpu.accelerometer_range = adafruit_mpu6050.Range.RANGE_2_G
+mpu.accelerometer_range = adafruit_mpu6050.Range.RANGE_8_G
 mpu.gyro_range = adafruit_mpu6050.GyroRange.RANGE_250_DPS
 maxAccZ = 0
 
