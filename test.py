@@ -117,9 +117,12 @@ while True:
     pitch = -(arctan2(accX, sqrt(accY**2 + accZ**2))*180.0)/pi
     roll = (arctan2(accY, accZ)*180.0)/pi
 
-    if pitch>35 or pitch<-35 or roll>35 or roll<-35:
-        fall = 1 
-        print("Fall is detected")
+    staticg = sqrt(accX**2+accY**2+accZ**2)
+    print(staticg)
+
+    # if pitch>35 or pitch<-35 or roll>35 or roll<-35:
+    #     fall = 1 
+    #     print("Fall is detected")
 
     font = getFont(20)
     
