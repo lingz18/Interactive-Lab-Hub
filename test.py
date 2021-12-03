@@ -209,10 +209,10 @@ while True:
                     print(toPrint)
                     draw_text(toPrint)
 
-                # if buttonA.value:
-                #     break
+                if buttonA.value:
+                    break
 
-                sleep(0.006)
+                sleep(0.01)
                 j += 1
 
             print("My program took", time.time() - start_time, "to run")
