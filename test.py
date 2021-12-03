@@ -94,7 +94,7 @@ i2c = board.I2C()  # uses board.SCL and board.SDA
 mpu = adafruit_mpu6050.MPU6050(i2c)
 mpu.accelerometer_range = adafruit_mpu6050.Range.RANGE_8_G
 mpu.gyro_range = adafruit_mpu6050.GyroRange.RANGE_250_DPS
-minAccZ = 0
+maxAcc = 0
 fall = 0
 
 
@@ -112,13 +112,15 @@ while True:
     gyr = str("Gyro: %.2f, %.2f, %.2f" % (mpu.gyro))
     # accX, accY, accZ= round(mpu.acceleration[0],2), round(mpu.acceleration[1],2), round(mpu.acceleration[2],2)
     accX, accY, accZ= mpu.acceleration[0], mpu.acceleration[1], mpu.acceleration[2]
-    # print(accX, accY, accZ)
-    # if currAcc < minAccZ:
-    #     minAccZ = currAcc
+
+    rmsAcc = sqrt(accX**2+accY**2+accZ**2)
+
+    if rmsAcc >= maxAcc:
+        maxAcc = rmsAcc
+
     pitch = -(arctan2(accX, sqrt(accY**2 + accZ**2))*180.0)/pi
     roll = (arctan2(accY, accZ)*180.0)/pi
 
-    staticg = sqrt(accX**2+accY**2+accZ**2)
     print(staticg)
 
 
@@ -135,11 +137,13 @@ while True:
     # y_1 -= font.getsize(acc)[1]
     # draw.text((x_2, y_1), acc, font=font, fill="#FFFFFF")
 
-    strminAccZ = 'MinAcc: ' + str(minAccZ)
-    x_3 = width/2 - font.getsize(strminAccZ)[0]/2
-    y_1 += font.getsize(strminAccZ)[1]
 
-    draw.text((x_3, y_1), strminAccZ, font=font, fill="#FFFFFF")
+
+    strmaxAcc = 'Max: ' + str(maxAcc)
+    x_3 = width/2 - font.getsize(strmaxAcc)[0]/2
+    y_1 += font.getsize(acc)[1]
+
+    draw.text((x_3, y_1), strmaxAcc, font=font, fill="#FFFFFF")
 
     # Display image.
     disp.image(image, rotation)
