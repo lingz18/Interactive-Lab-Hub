@@ -209,7 +209,7 @@ while True:
                     print(toPrint)
                     draw_text(toPrint)
 
-                if buttonA.value:
+                if not buttonA.value:
                     draw_text('Alert cancelled')
                     break
 
