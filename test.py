@@ -217,7 +217,7 @@ while True:
 
             print("My program took", time.time() - start_time, "to run")
             print ("Sending email...")
-            sendEmail()
+            # sendEmail()
             print ("done!")
             
             break
