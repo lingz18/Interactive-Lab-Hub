@@ -196,7 +196,7 @@ while True:
             y_1 = height/2 - font.getsize(strAlarm)[1]/2
             draw.text((x_1, y_1), strAlarm, font=font, fill="#FFFFFF")
             disp.image(image, rotation)
-            sleep(1)
+            time.sleep(1)
 
             j = 0
 
@@ -210,9 +210,10 @@ while True:
                     draw_text(toPrint)
 
                 if buttonA.value:
+                    draw_text('Alert cancelled')
                     break
 
-                sleep(0.01)
+                time.sleep(0.001)
                 j += 1
 
             print("My program took", time.time() - start_time, "to run")
