@@ -209,11 +209,11 @@ while True:
                     print(toPrint)
                     draw_text(toPrint)
 
-                if not buttonA.value:
+                if buttonA.value and buttonB.value:
                     draw_text('Alert cancelled')
                     break
 
-                time.sleep(0.001)
+                time.sleep(0.01)
                 j += 1
 
             print("My program took", time.time() - start_time, "to run")
