@@ -163,7 +163,7 @@ while True:
     # if 0.72 * g <= currAcc <= 1.28 * g:
 
 
-    if currAcc >= 2.5 * g and angVel >= 3.1:
+    if currAcc >= 2.5 * g :
         for x in range(1000):
             currAcc, angVel, _ = streamAccGyr()
 
