@@ -166,27 +166,26 @@ while True:
     # if 0.72 * g <= currAcc <= 1.28 * g:
 
 
-    # if currAcc >= 2.5 * g :
-    #     for x in range(100):
-    #         currAcc, angVel, _ = streamAccGyr()
+    if currAcc >= 2.5 * g :
+        for x in range(20):
+            currAcc, angVel, _ = streamAccGyr()
 
-    #     i = 0
+        i = 0
 
-    #     for x in range(100):
-    #         currAcc, _, _ = streamAccGyr()
-    #         if 0.72 * g <= currAcc <= 1.28 * g:
-    #             i += 1
-    #     if i > 80:
-    #         fall = True
-    #         print('Fall is detected!')
+        for x in range(20):
+            currAcc, _, _ = streamAccGyr()
+            if 0.72 * g <= currAcc <= 1.28 * g:
+                i += 1
+        if i > 16:
+            fall = True
+            print('Fall is detected!')
 
-    #         draw.rectangle((0, 0, width, height), outline=0, fill=0)
-    #         font = getFont(20)
-    #         x_1 = width/2 - font.getsize('Fall is detected!')[0]/2
-    #         y_1 = height/2 - font.getsize('Fall is detected!')[1]/2
-
-    #     draw.text((x_1, y_1), 'Fall is detected!', font=font, fill="#FFFFFF")
-    #     break
+            draw.rectangle((0, 0, width, height), outline=0, fill=0)
+            font = getFont(20)
+            x_1 = width/2 - font.getsize('Fall is detected!')[0]/2
+            y_1 = height/2 - font.getsize('Fall is detected!')[1]/2
+            draw.text((x_1, y_1), 'Fall is detected!', font=font, fill="#FFFFFF")
+            break
 
 
 
