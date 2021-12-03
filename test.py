@@ -9,6 +9,8 @@ import numpy as np
 from numpy import random, arctan2, sqrt, pi
 import board
 
+import qwiic_button
+
 import adafruit_mpu6050
 from adafruit_rgb_display.rgb import color565
 import adafruit_rgb_display.st7789 as st7789
@@ -203,24 +205,31 @@ while True:
             start_time = time.time()
 
             for x in range(1000):
+                my_button = qwiic_button.QwiicButton()
+                my_button.LED_on((1000-j)%100)
 
                 if j%100 == 0:
                     toPrint = str((1000-j)/100)+'s left to cancel'
                     print(toPrint)
                     draw_text(toPrint)
 
-                
-                # print(digitalio.DigitalInOut(board.D23).value)
-                if not digitalio.DigitalInOut(board.D23).value:
+                if my_button.is_button_pressed():
                     draw_text('Alert cancelled')
                     break
+                
+
+
+                # print(digitalio.DigitalInOut(board.D23).value)
+                # if not digitalio.DigitalInOut(board.D23).value:
+                #     draw_text('Alert cancelled')
+                #     break
 
                 time.sleep(0.01)
                 j += 1
 
                 if j == 999:
                     print ("Sending email...")
-                    sendEmail()
+                    # sendEmail()
                     print ("done!")
                     draw_text('Alert sent')
             
