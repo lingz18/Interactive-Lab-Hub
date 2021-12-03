@@ -154,7 +154,7 @@ def streamAcc():
 while True:
 
     currAcc, orientation = streamAcc()
-
+    print(currAcc, orientation)
     # if 0.72 * g <= currAcc <= 1.28 * g:
 
 
