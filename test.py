@@ -173,7 +173,7 @@ while True:
             currAcc, _, _ = streamAccGyr()
             if 0.72 * g <= currAcc <= 1.28 * g:
                 i += 1
-        if i == 100:
+        if i > 80:
             fall = True
             print('Fall is detected!')
 
