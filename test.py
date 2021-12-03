@@ -126,8 +126,13 @@ def streamAcc():
 
 while True:
 
-    streamAcc()
+    rmsAcc = streamAcc()
 
+    # if rmsAcc >= 2.5 * g:
+    #     accWindow = [0]*1000
+    #     i = 0
+    #     for x in accWindow:
+    #         accWindow[i] = rmsAcc
 
     # # Draw a black filled box to clear the image.
     # draw.rectangle((0, 0, width, height), outline=0, fill=0)
