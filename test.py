@@ -204,7 +204,7 @@ while True:
 
             start_time = time.time()
 
-            for x in range(1000):
+            for x in range(2000):
                 my_button = qwiic_button.QwiicButton()
                 my_button.LED_on((1000-j)%100)
 
