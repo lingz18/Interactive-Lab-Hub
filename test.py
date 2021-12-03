@@ -160,11 +160,11 @@ def streamAccGyr():
     return rmsAcc, angVel, orientation
 
 while True:
-    start_time = time.time()
+    # start_time = time.time()
 
     currAcc, angVel, orientation = streamAccGyr()
     print(currAcc, angVel, orientation)
-    print("My program took", time.time() - start_time, "to run")
+    # print("My program took", time.time() - start_time, "to run")
 
     # if 0.72 * g <= currAcc <= 1.28 * g:
 
