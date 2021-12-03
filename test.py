@@ -130,7 +130,7 @@ def streamAccGyr():
     rmsAcc = sqrt(accX**2+accY**2+accZ**2)
     angVel = sqrt(gyrX**2+gyrY**2+gyrZ**2)
 
-    orientation = unit_vector(mpu.acceleration)
+    # orientation = unit_vector(mpu.acceleration)
 
     if rmsAcc >= maxAcc:
         maxAcc = rmsAcc
@@ -164,12 +164,12 @@ while True:
 
 
     if currAcc >= 2.5 * g :
-        for x in range(1000):
+        for x in range(100):
             currAcc, angVel, _ = streamAccGyr()
 
         i = 0
 
-        for x in range(1000):
+        for x in range(100):
             currAcc, _, _ = streamAccGyr()
             if 0.72 * g <= currAcc <= 1.28 * g:
                 i += 1
