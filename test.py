@@ -158,7 +158,7 @@ def streamAccGyr():
 
 while True:
 
-    currAcc, orientation = streamAccGyr()
+    currAcc, angVel, orientation = streamAccGyr()
     print(currAcc, angVel, orientation)
     # if 0.72 * g <= currAcc <= 1.28 * g:
 
@@ -170,7 +170,7 @@ while True:
         i = 0
 
         for x in range(1000):
-            currAcc = streamAccGyr()
+            currAcc, _, _ = streamAccGyr()
             if 0.72 * g <= currAcc <= 1.28 * g:
                 i += 1
         if i == 1000:
