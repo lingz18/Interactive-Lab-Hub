@@ -209,9 +209,9 @@ while True:
                     print(toPrint)
                     draw_text(toPrint)
 
-                if buttonA.value and buttonB.value:
-                    draw_text('Alert cancelled')
-                    break
+                # if buttonA.value and buttonB.value:
+                #     draw_text('Alert cancelled')
+                #     break
 
                 time.sleep(0.01)
                 j += 1
