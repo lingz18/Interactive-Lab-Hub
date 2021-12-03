@@ -210,10 +210,10 @@ while True:
                     draw_text(toPrint)
 
                 
-                print(digitalio.DigitalInOut(board.D23).value)
-                # if digitalio.DigitalInOut(board.D23).value:
-                #     draw_text('Alert cancelled')
-                #     break
+                # print(digitalio.DigitalInOut(board.D23).value)
+                if not digitalio.DigitalInOut(board.D23).value:
+                    draw_text('Alert cancelled')
+                    break
 
                 time.sleep(0.01)
                 j += 1
