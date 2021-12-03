@@ -212,7 +212,7 @@ while True:
                 # if buttonA.value:
                 #     break
 
-                sleep(0.001)
+                sleep(0.006)
                 j += 1
 
             print("My program took", time.time() - start_time, "to run")
