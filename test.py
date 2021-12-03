@@ -199,6 +199,9 @@ while True:
             sleep(1)
 
             j = 0
+
+            start_time = time.time()
+
             for x in range(1000):
 
                 if j%100 == 0:
@@ -212,6 +215,7 @@ while True:
                 sleep(0.001)
                 j += 1
 
+            print("My program took", time.time() - start_time, "to run")
             print ("Sending email...")
             sendEmail()
             print ("done!")
