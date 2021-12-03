@@ -121,7 +121,7 @@ while True:
     pitch = -(arctan2(accX, sqrt(accY**2 + accZ**2))*180.0)/pi
     roll = (arctan2(accY, accZ)*180.0)/pi
 
-    print(staticg)
+    print(maxAcc)
 
 
     font = getFont(20)
