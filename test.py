@@ -96,55 +96,94 @@ mpu.accelerometer_range = adafruit_mpu6050.Range.RANGE_8_G
 mpu.gyro_range = adafruit_mpu6050.GyroRange.RANGE_250_DPS
 maxAcc = 0
 fall = 0
+g = 9.81
 
-
-while True:
+def streamAcc():
     # Draw a black filled box to clear the image.
     draw.rectangle((0, 0, width, height), outline=0, fill=0)
-
-    #TODO: fill in here. You should be able to look in cli_clock.py and stats.py 
-
-
-    ### render clock
-    # date = strftime("%m/%d/%Y")
-    # timer = strftime("%H:%M:%S")
     acc = str("Acc: %.2f, %.2f, %.2f " % (mpu.acceleration))
-    gyr = str("Gyro: %.2f, %.2f, %.2f" % (mpu.gyro))
-    # accX, accY, accZ= round(mpu.acceleration[0],2), round(mpu.acceleration[1],2), round(mpu.acceleration[2],2)
     accX, accY, accZ= mpu.acceleration[0], mpu.acceleration[1], mpu.acceleration[2]
-
     rmsAcc = sqrt(accX**2+accY**2+accZ**2)
 
     if rmsAcc >= maxAcc:
         maxAcc = rmsAcc
 
-    pitch = -(arctan2(accX, sqrt(accY**2 + accZ**2))*180.0)/pi
-    roll = (arctan2(accY, accZ)*180.0)/pi
-
-    print(maxAcc)
-
-
     font = getFont(20)
-    
-
     x_1 = width/2 - font.getsize(acc)[0]/2
     y_1 = height/2 - font.getsize(acc)[1]/2
-
     draw.text((x_1, y_1), acc, font=font, fill="#FFFFFF")
-
-    # font = getFont(18)
-    # x_2 = width/2 - font.getsize(acc)[0]/2
-    # y_1 -= font.getsize(acc)[1]
-    # draw.text((x_2, y_1), acc, font=font, fill="#FFFFFF")
-
-
 
     strmaxAcc = 'Max: ' + str(maxAcc)
     x_3 = width/2 - font.getsize(strmaxAcc)[0]/2
     y_1 += font.getsize(acc)[1]
-
     draw.text((x_3, y_1), strmaxAcc, font=font, fill="#FFFFFF")
 
     # Display image.
     disp.image(image, rotation)
     time.sleep(0.001)
+
+    return rmsAcc
+
+while True:
+
+    streamAcc()
+
+
+    # # Draw a black filled box to clear the image.
+    # draw.rectangle((0, 0, width, height), outline=0, fill=0)
+
+    # #TODO: fill in here. You should be able to look in cli_clock.py and stats.py 
+
+
+    # ### render clock
+    # # date = strftime("%m/%d/%Y")
+    # # timer = strftime("%H:%M:%S")
+    # acc = str("Acc: %.2f, %.2f, %.2f " % (mpu.acceleration))
+    # # gyr = str("Gyro: %.2f, %.2f, %.2f" % (mpu.gyro))
+    # # accX, accY, accZ= round(mpu.acceleration[0],2), round(mpu.acceleration[1],2), round(mpu.acceleration[2],2)
+    # accX, accY, accZ= mpu.acceleration[0], mpu.acceleration[1], mpu.acceleration[2]
+
+    # rmsAcc = sqrt(accX**2+accY**2+accZ**2)
+
+    # if rmsAcc >= maxAcc:
+    #     maxAcc = rmsAcc
+
+    # if rmsAcc >= 2.5 * g:
+    #     accWindow = [0]*1000
+    #     i = 0
+    #     for x in accWindow:
+    #         accWindow[i] = rmsAcc
+
+
+
+
+    # pitch = -(arctan2(accX, sqrt(accY**2 + accZ**2))*180.0)/pi
+    # roll = (arctan2(accY, accZ)*180.0)/pi
+
+    # print(maxAcc)
+
+
+    # font = getFont(20)
+    
+
+    # x_1 = width/2 - font.getsize(acc)[0]/2
+    # y_1 = height/2 - font.getsize(acc)[1]/2
+
+    # draw.text((x_1, y_1), acc, font=font, fill="#FFFFFF")
+
+    # # font = getFont(18)
+    # # x_2 = width/2 - font.getsize(acc)[0]/2
+    # # y_1 -= font.getsize(acc)[1]
+    # # draw.text((x_2, y_1), acc, font=font, fill="#FFFFFF")
+
+
+
+    # strmaxAcc = 'Max: ' + str(maxAcc)
+    # x_3 = width/2 - font.getsize(strmaxAcc)[0]/2
+    # y_1 += font.getsize(acc)[1]
+
+    # draw.text((x_3, y_1), strmaxAcc, font=font, fill="#FFFFFF")
+
+    # # Display image.
+    # disp.image(image, rotation)
+    # time.sleep(0.001)
