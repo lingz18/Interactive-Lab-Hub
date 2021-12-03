@@ -19,13 +19,13 @@ def sendEmail():
 	msgRoot['To'] = toEmail
 	msgRoot.preamble = 'Fall detected!'
 
-	# msgAlternative = MIMEMultipart('alternative')
-	# msgRoot.attach(msgAlternative)
-	# msgText = MIMEText('Smart security cam found object')
-	# msgAlternative.attach(msgText)
-
-	msgText = MIMEText('<img src="cid:image1">', 'html')
+	msgAlternative = MIMEMultipart('alternative')
+	msgRoot.attach(msgAlternative)
+	msgText = MIMEText('Fall detected!')
 	msgAlternative.attach(msgText)
+
+	# msgText = MIMEText('<img src="cid:image1">', 'html')
+	# msgAlternative.attach(msgText)
 
 	# msgImage = MIMEImage(image)
 	# msgImage.add_header('Content-ID', '<image1>')
