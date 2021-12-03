@@ -196,6 +196,7 @@ while True:
             y_1 = height/2 - font.getsize(strAlarm)[1]/2
             draw.text((x_1, y_1), strAlarm, font=font, fill="#FFFFFF")
             disp.image(image, rotation)
+            sleep(1)
 
             j = 0
             for x in range(1000):
@@ -203,7 +204,7 @@ while True:
                 if j%100 == 0:
                     toPrint = str((1000-j)/100)+'s left to cancel'
                     print(toPrint)
-                    draw_text('toPrint')
+                    draw_text(toPrint)
 
                 if buttonA.value:
                     break
@@ -214,6 +215,9 @@ while True:
             print ("Sending email...")
             sendEmail()
             print ("done!")
+            
+            break
+
 
 
 
