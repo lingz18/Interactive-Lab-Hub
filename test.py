@@ -220,7 +220,7 @@ while True:
 
                 if j == 999:
                     print ("Sending email...")
-                    # sendEmail()
+                    sendEmail()
                     print ("done!")
                     draw_text('Alert sent')
             
