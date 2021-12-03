@@ -183,7 +183,7 @@ while True:
 
             draw.rectangle((0, 0, width, height), outline=0, fill=0)
             font = getFont(15)
-            x_1 = width/2 - font.getsize(strAlarm)[0]/2
+            x_1 = width/2 - font.getsize('Fall is detected!')[0]/2
             y_1 = height/2 - font.getsize(strAlarm)[1]/2
             draw.text((x_1, y_1), strAlarm, font=font, fill="#FFFFFF")
             disp.image(image, rotation)
