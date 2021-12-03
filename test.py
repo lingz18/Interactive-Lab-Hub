@@ -206,10 +206,10 @@ while True:
 
             for x in range(2000):
                 my_button = qwiic_button.QwiicButton()
-                my_button.LED_on((1000-j)%100)
+                my_button.LED_on((2000-j)%100)
 
                 if j%100 == 0:
-                    toPrint = str((1000-j)/100)+'s left to cancel'
+                    toPrint = str((2000-j)/100)+'s left to cancel'
                     print(toPrint)
                     draw_text(toPrint)
 
