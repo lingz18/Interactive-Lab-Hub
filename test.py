@@ -96,7 +96,7 @@ mpu = adafruit_mpu6050.MPU6050(i2c)
 mpu.accelerometer_range = adafruit_mpu6050.Range.RANGE_8_G
 mpu.gyro_range = adafruit_mpu6050.GyroRange.RANGE_250_DPS
 maxAcc = 0
-fall = 0
+fall = False
 g = 9.81
 
 
@@ -115,16 +115,21 @@ def angle_between(v1, v2):
     """
     v1_u = unit_vector(v1)
     v2_u = unit_vector(v2)
-    return np.arccos(np.clip(np.dot(v1_u, v2_u), -1.0, 1.0))/pi
+    return np.arccos(np.clip(np.dot(v1_u, v2_u), -1.0, 1.0))
 
 
-def streamAcc():
+def streamAccGyr():
     global maxAcc
     # Draw a black filled box to clear the image.
     draw.rectangle((0, 0, width, height), outline=0, fill=0)
     acc = str("Acc: %.2f, %.2f, %.2f " % (mpu.acceleration))
+    gyr = str("Gyro: %.2f, %.2f, %.2f" % (mpu.gyro))
     accX, accY, accZ= mpu.acceleration[0], mpu.acceleration[1], mpu.acceleration[2]
+    gyrX, gyrY, gyrZ = mpu.gyro[0], mpu.gyro[1], mpu.gyro[2]
+
     rmsAcc = sqrt(accX**2+accY**2+accZ**2)
+    angVel = sqrt(gyrX**2+gyrY**2+gyrZ**2)
+
     orientation = unit_vector(mpu.acceleration)
 
     if rmsAcc >= maxAcc:
@@ -149,22 +154,38 @@ def streamAcc():
     disp.image(image, rotation)
     time.sleep(0.001)
 
-    return rmsAcc, orientation
+    return rmsAcc, angVel, orientation
 
 while True:
 
-    currAcc, orientation = streamAcc()
-    print(currAcc, orientation)
+    currAcc, orientation = streamAccGyr()
+    print(currAcc, angVel, orientation)
     # if 0.72 * g <= currAcc <= 1.28 * g:
 
 
-    # if currAcc >= 2.5 * g:]
+    if currAcc >= 2.5 * g and angVel >= 3.1:
+        for x in range(1000):
+            currAcc, angVel, _ = streamAccGyr()
 
-    #     for x in range(1000):
-    #         currAcc, _ = streamAcc()
-    #     for x in range(1000):
-    #         currAcc = streamAcc()
-    #         if 0.72 * g <= currAcc <= 1.28 * g:
+        i = 0
+
+        for x in range(1000):
+            currAcc = streamAccGyr()
+            if 0.72 * g <= currAcc <= 1.28 * g:
+                i += 1
+        if i == 1000:
+            fall = True
+            print('Fall is detected!')
+
+            draw.rectangle((0, 0, width, height), outline=0, fill=0)
+            font = getFont(20)
+            x_1 = width/2 - font.getsize('Fall is detected!')[0]/2
+            y_1 = height/2 - font.getsize('Fall is detected!')[1]/2
+
+        draw.text((x_1, y_1), 'Fall is detected!', font=font, fill="#FFFFFF")
+        break
+
+
 
     # # Draw a black filled box to clear the image.
     # draw.rectangle((0, 0, width, height), outline=0, fill=0)
