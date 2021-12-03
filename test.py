@@ -178,7 +178,7 @@ while True:
                 i += 1
         if i > 16:
             fall = True
-            strAlarm = 'Fall is detected! \n Press bttnA to \n cancel alarm'
+            strAlarm = 'Fall is detected! \n Press bttnA if wrong'
             print(strAlarm)
 
             draw.rectangle((0, 0, width, height), outline=0, fill=0)
