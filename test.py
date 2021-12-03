@@ -218,11 +218,12 @@ while True:
                 time.sleep(0.01)
                 j += 1
 
-            print("My program took", time.time() - start_time, "to run")
-            print ("Sending email...")
-            # sendEmail()
-            print ("done!")
-            draw_text('Alert sent')
+                if j == 999:
+                    print ("Sending email...")
+                    # sendEmail()
+                    print ("done!")
+                    draw_text('Alert sent')
+            
             
             break
 
