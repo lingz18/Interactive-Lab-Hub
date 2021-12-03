@@ -95,7 +95,7 @@ i2c = board.I2C()  # uses board.SCL and board.SDA
 mpu = adafruit_mpu6050.MPU6050(i2c)
 mpu.accelerometer_range = adafruit_mpu6050.Range.RANGE_8_G
 mpu.gyro_range = adafruit_mpu6050.GyroRange.RANGE_250_DPS
-global maxAcc = 0
+maxAcc = 0
 fall = 0
 g = 9.81
 
@@ -119,7 +119,7 @@ def angle_between(v1, v2):
 
 
 def streamAcc():
-
+    global maxAcc
     # Draw a black filled box to clear the image.
     draw.rectangle((0, 0, width, height), outline=0, fill=0)
     acc = str("Acc: %.2f, %.2f, %.2f " % (mpu.acceleration))
