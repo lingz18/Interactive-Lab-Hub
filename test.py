@@ -14,6 +14,7 @@ from adafruit_rgb_display.rgb import color565
 import adafruit_rgb_display.st7789 as st7789
 import webcolors
 
+from mail import sendEmail
 
 # Configuration for CS and DC pins (these are FeatherWing defaults on M0/M4):
 cs_pin = digitalio.DigitalInOut(board.CE0)
@@ -165,6 +166,14 @@ while True:
 
     # if 0.72 * g <= currAcc <= 1.28 * g:
 
+    def draw_text(strDraw):
+        draw.rectangle((0, 0, width, height), outline=0, fill=0)
+        font = getFont(15)
+        x_1 = width/2 - font.getsize(strDraw)[0]/2
+        y_1 = height/2 - font.getsize(strDraw)[1]/2
+        draw.text((x_1, y_1), strDraw, font=font, fill="#FFFFFF")
+        disp.image(image, rotation)
+
 
     if currAcc >= 2.5 * g and angVel >= 3:
         for x in range(20):
@@ -188,7 +197,26 @@ while True:
             draw.text((x_1, y_1), strAlarm, font=font, fill="#FFFFFF")
             disp.image(image, rotation)
 
-            time.sleep(10)
+            j = 0
+            for x in range(1000):
+
+                if j%100 == 0:
+                    toPrint = str((1000-j)/100,'s left to cancel')
+                    print(toPrint)
+                    draw_text('toPrint')
+
+                if buttonA.value:
+                    break
+
+                sleep(0.001)
+                j += 1
+
+            print ("Sending email...")
+            sendEmail()
+            print ("done!")
+
+
+
 
             
 
