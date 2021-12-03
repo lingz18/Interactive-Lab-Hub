@@ -204,12 +204,12 @@ while True:
 
             start_time = time.time()
 
-            for x in range(2000):
+            for x in range(1500):
                 my_button = qwiic_button.QwiicButton()
-                my_button.LED_on((2000-j)%100)
+                my_button.LED_on((1500-j)%100)
 
                 if j%100 == 0:
-                    toPrint = str((2000-j)/100)+'s left to cancel'
+                    toPrint = str((1500-j)/100)+'s left to cancel'
                     print(toPrint)
                     draw_text(toPrint)
 
@@ -227,9 +227,9 @@ while True:
                 time.sleep(0.01)
                 j += 1
 
-                if j == 999:
+                if j == 1499:
                     print ("Sending email...")
-                    # sendEmail()
+                    sendEmail()
                     print ("done!")
                     draw_text('Alert sent')
             
