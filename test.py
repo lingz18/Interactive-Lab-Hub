@@ -185,6 +185,8 @@ while True:
             x_1 = width/2 - font.getsize('Fall is detected!')[0]/2
             y_1 = height/2 - font.getsize('Fall is detected!')[1]/2
             draw.text((x_1, y_1), 'Fall is detected!', font=font, fill="#FFFFFF")
+            disp.image(image, rotation)
+            time.sleep(0.001)
             break
 
 
