@@ -209,9 +209,11 @@ while True:
                     print(toPrint)
                     draw_text(toPrint)
 
-                # if buttonA.value and buttonB.value:
-                #     draw_text('Alert cancelled')
-                #     break
+                
+
+                if digitalio.DigitalInOut(board.D23).value:
+                    draw_text('Alert cancelled')
+                    break
 
                 time.sleep(0.01)
                 j += 1
@@ -220,6 +222,7 @@ while True:
             print ("Sending email...")
             # sendEmail()
             print ("done!")
+            draw_text('Alert sent')
             
             break
 
