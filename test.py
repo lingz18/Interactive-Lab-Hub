@@ -206,8 +206,8 @@ while True:
                     print(toPrint)
                     draw_text(toPrint)
 
-                if buttonA.value:
-                    break
+                # if buttonA.value:
+                #     break
 
                 sleep(0.001)
                 j += 1
