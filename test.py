@@ -201,7 +201,7 @@ while True:
             for x in range(1000):
 
                 if j%100 == 0:
-                    toPrint = str((1000-j)/100,'s left to cancel')
+                    toPrint = str((1000-j)/100)+'s left to cancel'
                     print(toPrint)
                     draw_text('toPrint')
 
