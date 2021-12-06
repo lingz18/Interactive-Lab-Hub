@@ -167,8 +167,8 @@ while True:
     print("%.2f, %.2f"%(currAcc, angVel))
 
 
-    def draw_text(fontsize,strDraw):
-        # draw.rectangle((0, 0, width, height), outline=0, fill=0)
+    def draw_text(fontsize,strDraw,bgcolor):
+        draw.rectangle((0, 0, width, height), outline=0, fill=bgcolor)
         font = getFont(fontsize)
         x_1 = width/2 - font.getsize(strDraw)[0]/2
         y_1 = height/2 - font.getsize(strDraw)[1]/2
@@ -192,11 +192,13 @@ while True:
             print(strAlarm)
 
             draw.rectangle((0, 0, width, height), outline=0, fill="red")
-            disp.image(image, rotation)
+            
+
             font = getFont(15)
             x_1 = width/2 - font.getsize('Fall is detected!')[0]/2
             y_1 = height/2 - font.getsize(strAlarm)[1]/2
             draw.text((x_1, y_1), strAlarm, font=font, fill="#FFFFFF")
+            disp.image(image, rotation)
             time.sleep(1)
 
             j = 0
@@ -210,11 +212,10 @@ while True:
                 if j%100 == 0:
                     toPrint = str((1500-j)/100)+'s left to cancel'
                     print(toPrint)
-                    draw_text(20,toPrint)
+                    draw_text(20,toPrint,"red")
 
                 if my_button.is_button_pressed():
-                    draw.rectangle((0, 0, width, height), outline=0, fill="green")
-                    draw_text(25,'Alert cancelled')
+                    draw_text(25,'Alert cancelled',"green")
                     time.sleep(5)
                     break
                 
@@ -225,9 +226,9 @@ while True:
                 if j == 1499:
                     print ("Sending email...")
                     sendEmail()
-                    draw.rectangle((0, 0, width, height), outline=0, fill="green")
+                
                     print ("Sent!")
-                    draw_text(30,'Sent')
+                    draw_text(30,'Sent',"green")
                     time.sleep(5)
             
                 
