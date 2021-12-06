@@ -228,7 +228,7 @@ while True:
 
                 if j == 1499:
                     print ("Sending email...")
-                    sendEmail()
+                    # sendEmail()
                 
                     print ("Sent!")
                     draw_text(25,'Fall Alert Sent',"orange")
