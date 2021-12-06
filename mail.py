@@ -27,8 +27,9 @@ def sendEmail():
 	msgText = MIMEText('<img src="/home/pi/test.jpg">', 'html')
 	msgAlternative.attach(msgText)
 
-	
-	msgImage = MIMEImage("/home/pi/test.jpg")
+	attachement = "/home/pi/test.jpg"
+	image = open('test.png', 'rb')
+	msgImage = MIMEImage(image)
 	msgImage.add_header('Content-ID', '<image1>')
 	msgRoot.attach(msgImage)
 
