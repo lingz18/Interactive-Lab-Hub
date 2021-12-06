@@ -31,8 +31,9 @@ def sendEmail():
 	fp.close()
 
 	encoders.encode_base64(msg)
-    msg.add_header('Content-Disposition', 'attachment', filename=path.split('/')[-1])
-    msgRoot.attach(msg)
+	msg.add_header('Content-Disposition', 'attachment', filename=path.split('/')[-1])
+	msgRoot.attach(msg)
+	
 	# msgText = MIMEText('<img src="/home/pi/test.jpg">', 'html')
 	# msgAlternative.attach(msgText)
 
