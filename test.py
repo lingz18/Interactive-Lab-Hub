@@ -210,15 +210,15 @@ while True:
                 if j%100 == 0:
                     toPrint = str((1500-j)/100)+'s left to cancel'
                     print(toPrint)
-                    draw_text(toPrint)
+                    draw_text(20,toPrint)
 
                 if my_button.is_button_pressed():
                     draw.rectangle((0, 0, width, height), outline=0, fill=(0,255,0))
-                    draw_text('Alert cancelled')
+                    draw_text(25,'Alert cancelled')
                     time.sleep(5)
                     break
                 
-                time.sleep(0.01)
+                time.sleep(0.007)
                 j += 1
 
                 if j == 1499:
