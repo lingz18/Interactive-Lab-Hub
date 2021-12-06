@@ -162,13 +162,10 @@ def streamAccGyr():
     return rmsAcc, angVel, orientation
 
 while True:
-    # start_time = time.time()
 
     currAcc, angVel, orientation = streamAccGyr()
-    print(currAcc, angVel, orientation)
-    # print("My program took", time.time() - start_time, "to run")
+    print("%.2f, %.2f, %.2f"%currAcc, angVel, orientation)
 
-    # if 0.72 * g <= currAcc <= 1.28 * g:
 
     def draw_text(fontsize,strDraw):
         draw.rectangle((0, 0, width, height), outline=0, fill=0)
@@ -216,7 +213,7 @@ while True:
                     draw_text(toPrint)
 
                 if my_button.is_button_pressed():
-                    draw.rectangle((0, 0, width, height), outline=0, fill=green)
+                    draw.rectangle((0, 0, width, height), outline=0, fill=g)
                     draw_text('Alert cancelled')
                     time.sleep(5)
                     break
