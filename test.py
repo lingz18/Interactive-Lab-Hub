@@ -164,7 +164,7 @@ def streamAccGyr():
 while True:
 
     currAcc, angVel, orientation = streamAccGyr()
-    print("%.2f, %.2f, %.2f"%currAcc, angVel, orientation)
+    print("%.2f, %.2f"%(currAcc, angVel))
 
 
     def draw_text(fontsize,strDraw):
