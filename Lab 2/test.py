@@ -109,10 +109,14 @@ while True:
     # timer = strftime("%H:%M:%S")
     acc = str("Acc: %.2f, %.2f, %.2f " % (mpu.acceleration))
     gyr = str("Gyro: %.2f, %.2f, %.2f" % (mpu.gyro))
-    currAcc = round(mpu.acceleration[2],2)
+    currAcc = rmpu.acceleration[2],2)
 
     if currAcc > maxAccZ:
         maxAccZ = currAcc
+
+    # pitch = -(atan2(normAccel.XAxis, sqrt(normAccel.YAxis*normAccel.YAxis + normAccel.ZAxis*normAccel.ZAxis))*180.0)/M_PI;
+
+
 
     font = getFont(20)
     

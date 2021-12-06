@@ -215,6 +215,7 @@ while True:
 
                 if my_button.is_button_pressed():
                     draw_text('Alert cancelled')
+                    time.sleep(5)
                     break
                 
 
@@ -232,9 +233,10 @@ while True:
                     sendEmail()
                     print ("done!")
                     draw_text('Alert sent')
+                    time.sleep(5)
             
             
-            break
+
 
 
 
