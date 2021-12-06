@@ -168,12 +168,13 @@ while True:
 
 
     def draw_text(fontsize,strDraw):
-        draw.rectangle((0, 0, width, height), outline=0, fill=0)
+        # draw.rectangle((0, 0, width, height), outline=0, fill=0)
         font = getFont(fontsize)
         x_1 = width/2 - font.getsize(strDraw)[0]/2
         y_1 = height/2 - font.getsize(strDraw)[1]/2
         draw.text((x_1, y_1), strDraw, font=font, fill="#FFFFFF")
-        
+        disp.image(image, rotation)
+
 
     if currAcc >= 2.5 * g and angVel >= 3:
         for x in range(20):
@@ -210,7 +211,6 @@ while True:
                     toPrint = str((1500-j)/100)+'s left to cancel'
                     print(toPrint)
                     draw_text(20,toPrint)
-                    disp.image(image, rotation)
 
                 if my_button.is_button_pressed():
                     draw.rectangle((0, 0, width, height), outline=0, fill="green")
