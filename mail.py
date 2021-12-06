@@ -24,17 +24,21 @@ def sendEmail():
 	msgText = MIMEText('Fall detected!')
 	msgAlternative.attach(msgText)
 
-	msgText = MIMEText('<img src="/home/pi/test.jpg">', 'html')
-	msgAlternative.attach(msgText)
+	filename = "output.mkv"
+	attachment = open("Path of the file", "rb")
 
-	attachment = "test.jpg"
-	fp = open(attachment, 'rb')
-	msgImage = MIMEImage(fp.read())
-	fp.close()
 
-	# msgImage = MIMEImage(image)
-	msgImage.add_header('Content-ID', '<image1>')
-	msgRoot.attach(msgImage)
+
+	# msgText = MIMEText('<img src="/home/pi/test.jpg">', 'html')
+	# msgAlternative.attach(msgTlsext)
+
+	# attachment = "test.jpg"
+	# fp = open(attachment, 'rb')
+	# msgImage = MIMEImage(fp.read())
+	# fp.close()
+
+	# msgImage.add_header('Content-ID', '<image1>')
+	msgRoot.attach(attachment)
 
 	smtp = smtplib.SMTP('smtp.gmail.com', 587)
 	smtp.starttls()
