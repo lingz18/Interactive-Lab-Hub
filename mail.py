@@ -24,23 +24,28 @@ def sendEmail():
 	msgText = MIMEText('Fall detected!')
 	msgAlternative.attach(msgText)
 
-	filename = "output.mkv"
-	attachment = open("~/lingz/Interactive-Lab-Hub/", "rb")
 
+	fp = open("~/lingz/Interactive-Lab-Hub/", "rb")
+	msg = MIMEBase(maintype, subtype)
+	msg.set_payload(fp.read())
+	fp.close()
+
+	encoders.encode_base64(msg)
+    msg.add_header('Content-Disposition', 'attachment', filename=path.split('/')[-1])
+
+    msgRoot.attach(msg)
 
 
 	# msgText = MIMEText('<img src="/home/pi/test.jpg">', 'html')
-	# msgAlternative.attach(msgTlsext)
+	# msgAlternative.attach(msgText)
 
 	# attachment = "test.jpg"
 	# fp = open(attachment, 'rb')
 	# msgImage = MIMEImage(fp.read())
 	# fp.close()
-	p = MIMEBase('application', 'octet-stream')
-	p.set_payload((attachment).read())
-	encoders.encode_base64(p)
-	p.add_header('Content-Disposition', "attachment; filename= %s" % filename)
-	msgRoot.attach(p)
+
+	# msgImage.add_header('Content-ID', '<image1>')
+	# msgRoot.attach(msgImage)
 
 	smtp = smtplib.SMTP('smtp.gmail.com', 587)
 	smtp.starttls()
