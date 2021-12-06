@@ -165,7 +165,7 @@ while True:
 
     currAcc, angVel, orientation = streamAccGyr()
     print("%.2f, %.2f"%(currAcc, angVel))
-
+    my_button.LED_off()
 
     def draw_text(fontsize,strDraw,bgcolor):
         draw.rectangle((0, 0, width, height), outline=0, fill=bgcolor)
@@ -216,6 +216,7 @@ while True:
 
                 if my_button.is_button_pressed():
                     draw_text(25,'Alert cancelled',"green")
+                    my_button.LED_off()
                     time.sleep(5)
                     break
                 
@@ -229,6 +230,7 @@ while True:
                 
                     print ("Sent!")
                     draw_text(30,'Sent',"green")
+                    my_button.LED_off()
                     time.sleep(5)
             
                 
