@@ -26,7 +26,7 @@ def sendEmail():
 	msgText = MIMEText('Fall detected!')
 	msgAlternative.attach(msgText)
 
-	path = "/home/pi/lingz/Interactive-Lab-Hub/output.mkv"
+	path = "/home/pi/lingz/Interactive-Lab-Hub/output.mp4"
 	fp = open(path, "rb")
 	mkv = MIMEApplication(fp.read())
 	mkv.add_header('Content-Disposition', 'attachment', filename=path.split('/')[-1])
