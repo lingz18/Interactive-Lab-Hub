@@ -2,6 +2,7 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.image import MIMEImage
+from email.mime.base import MIMEBase
 
 # Email you want to send the update from (only works with gmail)
 fromEmail = 'zl.tonyzhong@gmail.com'
