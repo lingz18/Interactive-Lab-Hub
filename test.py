@@ -143,6 +143,8 @@ def streamAccGyr():
     y_1 = height/2 - font.getsize(acc)[1]/2
     draw.text((x_1, y_1), acc, font=font, fill="#FFFFFF")
 
+
+
     # strmaxAcc = 'Max: ' + str(maxAcc)
     # x_3 = width/2 - font.getsize(strmaxAcc)[0]/2
     # y_1 += font.getsize(acc)[1]
@@ -168,9 +170,9 @@ while True:
 
     # if 0.72 * g <= currAcc <= 1.28 * g:
 
-    def draw_text(strDraw):
+    def draw_text(fontsize,strDraw):
         draw.rectangle((0, 0, width, height), outline=0, fill=0)
-        font = getFont(15)
+        font = getFont(fontsize)
         x_1 = width/2 - font.getsize(strDraw)[0]/2
         y_1 = height/2 - font.getsize(strDraw)[1]/2
         draw.text((x_1, y_1), strDraw, font=font, fill="#FFFFFF")
@@ -192,7 +194,7 @@ while True:
             strAlarm = 'Fall is detected! \n Press bttnA if wrong'
             print(strAlarm)
 
-            draw.rectangle((0, 0, width, height), outline=0, fill=0)
+            draw.rectangle((0, 0, width, height), outline=0, fill=red)
             font = getFont(15)
             x_1 = width/2 - font.getsize('Fall is detected!')[0]/2
             y_1 = height/2 - font.getsize(strAlarm)[1]/2
@@ -214,93 +216,20 @@ while True:
                     draw_text(toPrint)
 
                 if my_button.is_button_pressed():
+                    draw.rectangle((0, 0, width, height), outline=0, fill=green)
                     draw_text('Alert cancelled')
                     time.sleep(5)
                     break
                 
-
-
-                # print(digitalio.DigitalInOut(board.D23).value)
-                # if not digitalio.DigitalInOut(board.D23).value:
-                #     draw_text('Alert cancelled')
-                #     break
-
                 time.sleep(0.01)
                 j += 1
 
                 if j == 1499:
                     print ("Sending email...")
                     sendEmail()
-                    print ("done!")
-                    draw_text('Alert sent')
+                    draw.rectangle((0, 0, width, height), outline=0, fill=green)
+                    print ("Sent!")
+                    draw_text('Sent')
                     time.sleep(5)
             
             
-
-
-
-
-
-
-            
-
-
-
-    # # Draw a black filled box to clear the image.
-    # draw.rectangle((0, 0, width, height), outline=0, fill=0)
-
-    # #TODO: fill in here. You should be able to look in cli_clock.py and stats.py 
-
-
-    # ### render clock
-    # # date = strftime("%m/%d/%Y")
-    # # timer = strftime("%H:%M:%S")
-    # acc = str("Acc: %.2f, %.2f, %.2f " % (mpu.acceleration))
-    # # gyr = str("Gyro: %.2f, %.2f, %.2f" % (mpu.gyro))
-    # # accX, accY, accZ= round(mpu.acceleration[0],2), round(mpu.acceleration[1],2), round(mpu.acceleration[2],2)
-    # accX, accY, accZ= mpu.acceleration[0], mpu.acceleration[1], mpu.acceleration[2]
-
-    # rmsAcc = sqrt(accX**2+accY**2+accZ**2)
-
-    # if rmsAcc >= maxAcc:
-    #     maxAcc = rmsAcc
-
-    # if rmsAcc >= 2.5 * g:
-    #     accWindow = [0]*1000
-    #     i = 0
-    #     for x in accWindow:
-    #         accWindow[i] = rmsAcc
-
-
-
-
-    # pitch = -(arctan2(accX, sqrt(accY**2 + accZ**2))*180.0)/pi
-    # roll = (arctan2(accY, accZ)*180.0)/pi
-
-    # print(maxAcc)
-
-
-    # font = getFont(20)
-    
-
-    # x_1 = width/2 - font.getsize(acc)[0]/2
-    # y_1 = height/2 - font.getsize(acc)[1]/2
-
-    # draw.text((x_1, y_1), acc, font=font, fill="#FFFFFF")
-
-    # # font = getFont(18)
-    # # x_2 = width/2 - font.getsize(acc)[0]/2
-    # # y_1 -= font.getsize(acc)[1]
-    # # draw.text((x_2, y_1), acc, font=font, fill="#FFFFFF")
-
-
-
-    # strmaxAcc = 'Max: ' + str(maxAcc)
-    # x_3 = width/2 - font.getsize(strmaxAcc)[0]/2
-    # y_1 += font.getsize(acc)[1]
-
-    # draw.text((x_3, y_1), strmaxAcc, font=font, fill="#FFFFFF")
-
-    # # Display image.
-    # disp.image(image, rotation)
-    # time.sleep(0.001)
