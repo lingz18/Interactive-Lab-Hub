@@ -224,7 +224,7 @@ while True:
                 if j == 1499:
                     print ("Sending email...")
                     sendEmail()
-                    draw.rectangle((0, 0, width, height), outline=0, fill=0,255,0))
+                    draw.rectangle((0, 0, width, height), outline=0, fill=(0,255,0))
                     print ("Sent!")
                     draw_text('Sent')
                     time.sleep(5)
