@@ -27,13 +27,14 @@ def sendEmail():
 
 
 	fp = open("/home/pi/lingz/Interactive-Lab-Hub/output.mkv", "rb")
-	msg = MIMEBase(maintype, subtype)
-	msg.set_payload(fp.read())
-	fp.close()
+	mkv = MIMEApplication(fp.read())
+	mkv.add_header('Content-Disposition', 'attachment', filename=path.split('/')[-1])
+	# msg.set_payload(fp.read())
+	# fp.close()
 
-	encoders.encode_base64(msg)
-	msg.add_header('Content-Disposition', 'attachment', filename=path.split('/')[-1])
-	msgRoot.attach(msg)
+	# encoders.encode_base64(msg)
+	# msg.add_header('Content-Disposition', 'attachment', filename=path.split('/')[-1])
+	msgRoot.attach(mkv)
 	
 	# msgText = MIMEText('<img src="/home/pi/test.jpg">', 'html')
 	# msgAlternative.attach(msgText)
