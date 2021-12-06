@@ -231,7 +231,7 @@ while True:
                     # sendEmail()
                 
                     print ("Sent!")
-                    draw_text(25,'Fall Alert Sent',"orange")
+                    draw_text(25,'Fall Alert Sent',"#FF6600")
                     my_button.LED_off()
                     time.sleep(5)
             
