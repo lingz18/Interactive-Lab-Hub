@@ -25,7 +25,7 @@ def sendEmail():
 	msgAlternative.attach(msgText)
 
 	filename = "output.mkv"
-	attachment = open("~/lingz/Interactive-Lab-Hub/output.mkv", "rb")
+	attachment = open("~/lingz/Interactive-Lab-Hub/", "rb")
 
 
 
