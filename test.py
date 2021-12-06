@@ -192,10 +192,10 @@ while True:
             print(strAlarm)
 
             draw.rectangle((0, 0, width, height), outline=0, fill="red")
-            font = getFont(15)
-            x_1 = width/2 - font.getsize('Fall is detected!')[0]/2
-            y_1 = height/2 - font.getsize(strAlarm)[1]/2
-            draw.text((x_1, y_1), strAlarm, font=font, fill="#FFFFFF")
+            # font = getFont(15)
+            # x_1 = width/2 - font.getsize('Fall is detected!')[0]/2
+            # y_1 = height/2 - font.getsize(strAlarm)[1]/2
+            # draw.text((x_1, y_1), strAlarm, font=font, fill="#FFFFFF")
             time.sleep(1)
 
             j = 0
