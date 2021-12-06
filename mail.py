@@ -25,7 +25,7 @@ def sendEmail():
 	msgAlternative.attach(msgText)
 
 	filename = "output.mkv"
-	attachment = open("Path of the file", "rb")
+	attachment = open("~/lingz/Interactive-Lab-Hub/output.mkv", "rb")
 
 
 
@@ -36,9 +36,11 @@ def sendEmail():
 	# fp = open(attachment, 'rb')
 	# msgImage = MIMEImage(fp.read())
 	# fp.close()
-
-	# msgImage.add_header('Content-ID', '<image1>')
-	msgRoot.attach(attachment)
+	p = MIMEBase('application', 'octet-stream')
+	p.set_payload((attachment).read())
+	encoders.encode_base64(p)
+	p.add_header('Content-Disposition', "attachment; filename= %s" % filename)
+	msgRoot.attach(p)
 
 	smtp = smtplib.SMTP('smtp.gmail.com', 587)
 	smtp.starttls()
