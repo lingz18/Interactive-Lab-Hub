@@ -191,7 +191,7 @@ while True:
             strAlarm = 'Fall is detected! \n Press bttnA if wrong'
             print(strAlarm)
 
-            draw.rectangle((0, 0, width, height), outline=0, fill=(255,0,0))
+            draw.rectangle((0, 0, width, height), outline=0, fill="red")
             font = getFont(15)
             x_1 = width/2 - font.getsize('Fall is detected!')[0]/2
             y_1 = height/2 - font.getsize(strAlarm)[1]/2
@@ -213,7 +213,7 @@ while True:
                     draw_text(20,toPrint)
 
                 if my_button.is_button_pressed():
-                    draw.rectangle((0, 0, width, height), outline=0, fill=(0,255,0))
+                    draw.rectangle((0, 0, width, height), outline=0, fill="green")
                     draw_text(25,'Alert cancelled')
                     time.sleep(5)
                     break
@@ -224,7 +224,7 @@ while True:
                 if j == 1499:
                     print ("Sending email...")
                     sendEmail()
-                    draw.rectangle((0, 0, width, height), outline=0, fill=(0,255,0))
+                    draw.rectangle((0, 0, width, height), outline=0, fill="green")
                     print ("Sent!")
                     draw_text('Sent')
                     time.sleep(5)
