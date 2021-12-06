@@ -165,6 +165,8 @@ while True:
 
     currAcc, angVel, orientation = streamAccGyr()
     print("%.2f, %.2f"%(currAcc, angVel))
+
+    my_button = qwiic_button.QwiicButton()
     my_button.LED_off()
 
     def draw_text(fontsize,strDraw,bgcolor):
@@ -206,7 +208,7 @@ while True:
             start_time = time.time()
 
             for x in range(1500):
-                my_button = qwiic_button.QwiicButton()
+                
                 my_button.LED_on((1500-j)%100)
 
                 if j%100 == 0:
