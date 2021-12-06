@@ -217,9 +217,9 @@ while True:
                     draw_text(20,toPrint,"red")
 
                 if my_button.is_button_pressed():
-                    draw_text(25,'Alert cancelled',"green")
+                    draw_text(22,'Falling Alert Sent',"green")
                     my_button.LED_off()
-                    time.sleep(100)
+                    time.sleep(5)
                     break
                 
 
