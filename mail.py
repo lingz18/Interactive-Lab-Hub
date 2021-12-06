@@ -25,7 +25,7 @@ def sendEmail():
 	msgAlternative.attach(msgText)
 
 
-	fp = open("~/lingz/Interactive-Lab-Hub/", "rb")
+	fp = open("~/lingz/Interactive-Lab-Hub/output.mkv", "rb")
 	msg = MIMEBase(maintype, subtype)
 	msg.set_payload(fp.read())
 	fp.close()
