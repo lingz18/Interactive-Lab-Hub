@@ -24,12 +24,12 @@ def sendEmail():
 	msgText = MIMEText('Fall detected!')
 	msgAlternative.attach(msgText)
 
-	# msgText = MIMEText('<img src="cid:image1">', 'html')
-	# msgAlternative.attach(msgText)
+	msgText = MIMEText('<img src="/home/pi/test.jpg">', 'html')
+	msgAlternative.attach(msgText)
 
-	# msgImage = MIMEImage(image)
-	# msgImage.add_header('Content-ID', '<image1>')
-	# msgRoot.attach(msgImage)
+	msgImage = MIMEImage(image)
+	msgImage.add_header('Content-ID', '<image1>')
+	msgRoot.attach(msgImage)
 
 	smtp = smtplib.SMTP('smtp.gmail.com', 587)
 	smtp.starttls()
