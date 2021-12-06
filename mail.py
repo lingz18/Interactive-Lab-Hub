@@ -28,8 +28,11 @@ def sendEmail():
 	msgAlternative.attach(msgText)
 
 	attachment = "/home/pi/test.jpg"
-	image = open(attachment, 'rb')
-	msgImage = MIMEImage(image)
+	fp = open(attachment, 'rb')
+	msgImage = MIMEImage(fp.read())
+	fp.close()
+
+	# msgImage = MIMEImage(image)
 	msgImage.add_header('Content-ID', '<image1>')
 	msgRoot.attach(msgImage)
 
