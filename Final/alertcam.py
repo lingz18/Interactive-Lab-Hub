@@ -170,7 +170,7 @@ while True:
         pygame.mixer.music.play(1)
         draw_text(20,'Video recorded','green')
         sendEmail('fall0.mp4')
-
+        break
         
     # cam = webCam()
     # cam.record('fall0.mp4')
