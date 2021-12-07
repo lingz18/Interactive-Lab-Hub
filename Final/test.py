@@ -247,7 +247,7 @@ while True:
 
                 if my_button.is_button_pressed():
                     draw_text(22,'Alert Cancelled',"green")
-                    client.publish("IDD/Fall", 'True')
+                    client.publish("IDD/Fall", 'False')
                     # draw_text(25,'Fall Alert Sent',"#E55300")
 
                     my_button.LED_off()
