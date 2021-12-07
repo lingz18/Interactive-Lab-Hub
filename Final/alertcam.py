@@ -171,7 +171,7 @@ while True:
         draw_text(25, 'Fall Detected', 'red')
         # pygame.mixer.music.play(1)
         # p.play(1)
-
+        os.system('omxplayer Graduate.py') 
 
         print('recording')
         # 
