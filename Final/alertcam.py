@@ -177,7 +177,7 @@ while True:
         # 
         os.system('rm recording.mp4')
         # os.system('ffmpeg -r 24 -f v4l2  -s 1280x720 -t 15 -i /dev/video0 recording.mp4')
-        os.system('ffmpeg -framerate 30 -f v4l2  -s 1280x720 -t 15 -i /dev/video0 -vf "rotate=180" recording.mp4')
+        os.system('ffmpeg -r 25 -f v4l2  -s 1280x720 -t 15 -i /dev/video0 -vf "rotate=180" recording.mp4')
         draw_text(20,'Video recorded','green')
 
         sendEmail()
