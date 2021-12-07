@@ -11,7 +11,7 @@ class webCam(object):
 		# self.fname = name
 
 	def record(self, name):
-		file_name = "./"+str(name) "fall.mp4"
+		file_name = "./"+str(name)+"fall.mp4"
 		print("Start recording...")
 		self.camera.start_recording(file_name)
 		self.camera.wait_recording(10)
