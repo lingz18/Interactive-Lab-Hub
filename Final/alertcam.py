@@ -174,6 +174,8 @@ while True:
         os.system('omxplayer Graduate.wav') 
 
         print('recording')
+        draw_text(20,'Recording Video','green')
+
         # 
         os.system('rm recording.mp4')
         # os.system('ffmpeg -r 24 -f v4l2  -s 1280x720 -t 15 -i /dev/video0 recording.mp4')
