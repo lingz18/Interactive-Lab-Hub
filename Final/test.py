@@ -18,6 +18,9 @@ import webcolors
 
 from mail import sendEmail
 
+import paho.mqtt.client as mqtt
+import uuid
+
 # Configuration for CS and DC pins (these are FeatherWing defaults on M0/M4):
 cs_pin = digitalio.DigitalInOut(board.CE0)
 dc_pin = digitalio.DigitalInOut(board.D25)
@@ -81,18 +84,33 @@ backlight = digitalio.DigitalInOut(board.D22)
 backlight.switch_to_output()
 backlight.value = True
 
-def getFont(size):
-    font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", size)
-    return font
-
-def getRandomXY():
-    x = random.randint(240, size=10)
-    y = random.randint(135, size=10) 
-    return x, y
-
-x, y = getRandomXY()
 
 reset = True
+
+
+class App:
+    def __init__(self):
+        self.fall = False
+
+# the # wildcard means we subscribe to all subtopics of IDD
+topic = 'IDD/Fall/#'
+
+alertCam = App()
+
+# attach out callbacks to the client
+client = mqtt.Client(str(uuid.uuid1()))
+client.tls_set()
+client.username_pw_set('idd', 'device@theFarm')
+client.on_connect = on_connect
+client.on_message = on_message
+
+client.connect(
+    'farlab.infosci.cornell.edu',
+    port=8883)
+
+client.loop_start()
+
+
 
 i2c = board.I2C()  # uses board.SCL and board.SDA
 mpu = adafruit_mpu6050.MPU6050(i2c)
@@ -196,7 +214,11 @@ while True:
         if i > 16:
             fall = True
             strAlarm = 'Fall is detected! \n Press bttnA if wrong'
+
             print(strAlarm)
+
+            client.publish("IDD/Fall", 'True')
+
 
             draw.rectangle((0, 0, width, height), outline=0, fill="red")
             
@@ -223,6 +245,7 @@ while True:
 
                 if my_button.is_button_pressed():
                     draw_text(22,'Alert Cancelled',"green")
+                    client.publish("IDD/Fall", 'True')
                     # draw_text(25,'Fall Alert Sent',"#E55300")
 
                     my_button.LED_off()
