@@ -17,10 +17,9 @@ import webcolors
 
 
 import os
-# import pygame
+import pygame
 # from camera import webCam
 from mail import sendEmail
-from soundplayer import SoundPlayer
 
 
 # Configuration for CS and DC pins (these are FeatherWing defaults on M0/M4):
