@@ -1,6 +1,6 @@
 # soundplayer.py
 
-import thread
+import _thread
 import os
 
 class SoundPlayer:
