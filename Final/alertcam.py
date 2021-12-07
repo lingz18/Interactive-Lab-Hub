@@ -177,7 +177,7 @@ while True:
         print('recording')
         # 
         os.system('rm recording.mp4')
-        os.system('ffmpeg -r 24 -f v4l2  -s 1280x720 -t 15 -i /dev/video0 recording.mp4')
+        os.system('ffmpeg -r 24 -f v4l2  -s 1280x720 -t 15 -vf "hflip,vflip" -i /dev/video0 recording.mp4')
         draw_text(20,'Video recorded','green')
 
         sendEmail()
