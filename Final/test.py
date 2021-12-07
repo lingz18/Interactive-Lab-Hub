@@ -264,10 +264,10 @@ while True:
                 j += 1
 
                 if j == 1499:
-                    print ("Sending email...")
-                    # sendEmail()
-                
-                    print ("Sent!")
+                    # print ("Sending email...")
+                    
+                    sleep(3)
+                    print ("Alert Sent!")
                     draw_text(25,'Fall Alert Sent',"#E55300")
                     my_button.LED_off()
                     client.publish("IDD/Fall", "False")
