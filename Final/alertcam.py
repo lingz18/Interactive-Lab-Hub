@@ -144,7 +144,7 @@ def draw_text(fontsize,strDraw,bgcolor):
         x = width/2 - font.getsize(strDraw)[0]/2
         y = height/2 - font.getsize(strDraw)[1]/2
         draw.text((x, y), strDraw, font=font, fill="#FFFFFF")
-        # disp.image(image, rotation)
+        disp.image(image, rotation)
 
 
 while True:
@@ -167,11 +167,12 @@ while True:
         draw_text(25, 'Fall Detected', 'red')
         pygame.mixer.music.play(1)
         print('recording')
-        os.system('rm recording.mp4')
-        os.system('ffmpeg -f v4l2  -s 1280x720 -t 15 -i /dev/video0 recording.mp4')
+        sendEmail()
+        # os.system('rm recording.mp4')
+        # os.system('ffmpeg -f v4l2  -s 1280x720 -t 15 -i /dev/video0 recording.mp4')
         print('done')
         draw_text(20,'Video recorded','green')
-        # sendEmail('recording.mp4')
+    
         break
         
     # cam = webCam()
