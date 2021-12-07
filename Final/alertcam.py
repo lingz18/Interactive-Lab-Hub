@@ -17,7 +17,7 @@ import webcolors
 
 
 import os
-import pygame
+# import pygame
 # from camera import webCam
 from mail import sendEmail
 
@@ -129,8 +129,8 @@ client.connect(
     port=8883)
 
 client.loop_start()
-pygame.mixer.init()
-pygame.mixer.music.load("./Graduate.wav")
+# pygame.mixer.init()
+# pygame.mixer.music.load("./Graduate.wav")
 
 def draw_text(fontsize,strDraw,bgcolor):
         draw.rectangle((0, 0, width, height), outline=0, fill=bgcolor)
@@ -168,14 +168,14 @@ while True:
     else: 
         print('Fall detected')
         draw_text(25, 'Fall Detected', 'red')
-        pygame.mixer.music.play(1)
+        # pygame.mixer.music.play(1)
         print('recording')
         # 
         os.system('rm recording.mp4')
         os.system('ffmpeg -f v4l2  -s 1280x720 -t 15 -i /dev/video0 recording.mp4')
         draw_text(20,'Video recorded','green')
 
-        # sendEmail()
+        sendEmail()
         
         draw_text(20,'Video sent','green')
     
