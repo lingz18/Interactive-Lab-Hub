@@ -149,7 +149,7 @@ class App:
 topic = 'IDD/Fall/#'
 
 alertCam = App()
-p = SoundPlayer("./Graduate.wav", 1) 
+# p = SoundPlayer("./Graduate.wav", 1) 
 
 while True:
 
