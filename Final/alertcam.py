@@ -151,7 +151,7 @@ def draw_text(fontsize,strDraw,bgcolor):
 
 
 while True:
-    draw.rectangle((0, 0, width, height), outline=0, fill=0)
+    draw.rectangle((0, 0, width, height), outline=0, fill='#FFFFF')
 
     if alertCam.fall:
         draw_text(25, 'Fall Detected', 'red')
