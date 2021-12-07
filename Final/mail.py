@@ -16,7 +16,7 @@ fromEmailPassword = 'Lzzhfhd18.!?'
 # Email you want to send the update to
 toEmail = 'lz555@cornell.edu'
 
-def sendEmail():
+def sendEmail(fname):
 	msgRoot = MIMEMultipart('related')
 	msgRoot['Subject'] = 'Fall Detected!'
 	msgRoot['From'] = fromEmail
@@ -28,7 +28,7 @@ def sendEmail():
 	msgText = MIMEText('Fall detected!')
 	msgAlternative.attach(msgText)
 
-	path = "/home/pi/lingz/Interactive-Lab-Hub/output.mp4"
+	path = "/home/pi/lingz/Interactive-Lab-Hub/"+str(fname)
 	fp = open(path, "rb")
 	mkv = MIMEApplication(fp.read())
 	mkv.add_header('Content-Disposition', 'attachment', filename=path.split('/')[-1])

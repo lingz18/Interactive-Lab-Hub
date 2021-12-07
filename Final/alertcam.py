@@ -16,6 +16,7 @@ import adafruit_rgb_display.st7789 as st7789
 import webcolors
 
 from mail import sendEmail
+from camera import webCam
 
 # Configuration for CS and DC pins (these are FeatherWing defaults on M0/M4):
 cs_pin = digitalio.DigitalInOut(board.CE0)
@@ -90,6 +91,7 @@ reset = True
 
 
 
+
 class App:
     def __init__(self):
         self.fall = False
@@ -143,6 +145,7 @@ def draw_text(fontsize,strDraw,bgcolor):
 
 
 while True:
+
     if not alertCam.fall:
         draw_text(25, 'Fall Detected', 'red')
         draw.rectangle((0, 0, width, height), outline=0, fill='green')
@@ -158,6 +161,11 @@ while True:
         draw.text((x_2, y_1), str2, font=font, fill="#FFFFFF")
     else: 
         draw_text(25, 'Fall Detected', 'red')
+
+    cam = webCam()
+    cam.record('fall0.mp4')
+
+    sendEmail('fall0.mp4')
 
     disp.image(image, rotation)
     time.sleep(0.01)
