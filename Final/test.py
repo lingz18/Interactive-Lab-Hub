@@ -215,7 +215,7 @@ while True:
                 i += 1
         if i > 16:
             fall = True
-            strAlarm = 'Fall is detected! \n Press bttnA if wrong'
+            strAlarm = 'Fall is detected!'
 
             print(strAlarm)
 
@@ -226,9 +226,13 @@ while True:
             
 
             font = getFont(15)
-            x_1 = width/2 - font.getsize('Fall is detected!')[0]/2
-            y_1 = height/2 - font.getsize(strAlarm)[1]/2
+            x_1 = width/2 - font.getsize(strAlarm)[0]/2
+            y_1 = height/2 - font.getsize(strAlarm)[1]
             draw.text((x_1, y_1), strAlarm, font=font, fill="#FFFFFF")
+            x_2 = width/2 - font.getsize('Press Red Button if wrong')[0]/2
+            y_2 = height/2 + font.getsize('Press Red Button if wrong')[1]
+            draw.text((x_2, y_2), 'Press Red Button if wrong', font=font, fill="#FFFFFF")
+
             disp.image(image, rotation)
             time.sleep(1)
 
