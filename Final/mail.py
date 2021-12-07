@@ -31,8 +31,8 @@ def sendEmail():
 	msgText = MIMEText('Fall detected!')
 	msgAlternative.attach(msgText)
 
-	os.system('rm recording.mp4')
-	os.system('ffmpeg -f v4l2  -s 1280x720 -t 15 -i /dev/video0 recording.mp4')
+	# os.system('rm recording.mp4')
+	# os.system('ffmpeg -f v4l2  -s 1280x720 -t 15 -i /dev/video0 recording.mp4')
 	path = "/home/pi/lingz/Interactive-Lab-Hub/Final/recording.mp4"
 
 	fp = open(path, "rb")
