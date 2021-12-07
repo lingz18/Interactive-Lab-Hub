@@ -170,7 +170,7 @@ def streamAccGyr():
     # y_1 += font.getsize(acc)[1]
     # draw.text((x_3, y_1), strmaxAcc, font=font, fill="#FFFFFF")
 
-    strrmsAcc = str("MaxAcc: %.2f"%rmsAcc)
+    strrmsAcc = str("TotalAcc: %.2f"%rmsAcc)
     x_3 = width/2 - font.getsize(strrmsAcc)[0]/2
     y_2 = y_1+font.getsize(acc)[1]
     draw.text((x_3, y_2), strrmsAcc, font=font, fill="#FFFFFF")
