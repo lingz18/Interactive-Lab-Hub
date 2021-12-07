@@ -101,8 +101,6 @@ alertCam = App()
 client = mqtt.Client(str(uuid.uuid1()))
 client.tls_set()
 client.username_pw_set('idd', 'device@theFarm')
-client.on_connect = on_connect
-client.on_message = on_message
 
 client.connect(
     'farlab.infosci.cornell.edu',
