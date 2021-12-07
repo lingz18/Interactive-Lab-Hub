@@ -184,8 +184,10 @@ def streamAccGyr():
 
     return rmsAcc, angVel, orientation
 
+client.publish("IDD/Fall", "False")
+
 while True:
-    client.publish("IDD/Fall", "False")
+    
     currAcc, angVel, orientation = streamAccGyr()
     print("%.2f, %.2f"%(currAcc, angVel))
 
@@ -268,6 +270,9 @@ while True:
                     print ("Sent!")
                     draw_text(25,'Fall Alert Sent',"#E55300")
                     my_button.LED_off()
+                    client.publish("IDD/Fall", "False")
                     time.sleep(10)
+
+
             
                 
