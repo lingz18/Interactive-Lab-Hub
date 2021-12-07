@@ -132,14 +132,6 @@ client.connect(
 
 client.loop_start()
 
-#connect to the broker
-client.connect(
-    'farlab.infosci.cornell.edu',
-    port=8883)
-
-# this is blocking. to see other ways of dealing with the loop
-#  https://www.eclipse.org/paho/index.php?page=clients/python/docs/index.php#network-loop
-client.loop_start()
 
 def draw_text(fontsize,strDraw,bgcolor):
         draw.rectangle((0, 0, width, height), outline=0, fill=bgcolor)
