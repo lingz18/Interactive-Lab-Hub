@@ -163,11 +163,13 @@ while True:
         y_1 += font.getsize(str2)[1]
         draw.text((x_2, y_1), str2, font=font, fill="#FFFFFF")
     else: 
+        print('Fall detected')
         draw_text(25, 'Fall Detected', 'red')
-        
+        pygame.mixer.music.play(1)
+        print('recording')
         os.system('rm recording.mp4')
         os.system('ffmpeg -f v4l2  -s 1280x720 -t 15 -i /dev/video0 recording.mp4')
-        pygame.mixer.music.play(1)
+        print('done')
         draw_text(20,'Video recorded','green')
         sendEmail('fall0.mp4')
         break
