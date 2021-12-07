@@ -175,7 +175,7 @@ while True:
         os.system('ffmpeg -f v4l2  -s 1280x720 -t 15 -i /dev/video0 recording.mp4')
         draw_text(20,'Video recorded','green')
 
-        sendEmail()
+        # sendEmail()
         
         draw_text(20,'Video sent','green')
     
