@@ -187,7 +187,7 @@ def streamAccGyr():
     return rmsAcc, angVel, orientation
 
 while True:
-
+    client.publish("IDD/Fall", 'False')
     currAcc, angVel, orientation = streamAccGyr()
     print("%.2f, %.2f"%(currAcc, angVel))
 

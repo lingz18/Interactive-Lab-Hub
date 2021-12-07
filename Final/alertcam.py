@@ -94,14 +94,7 @@ reset = True
 
 
 
-class App:
-    def __init__(self):
-        self.fall = False
 
-# the # wildcard means we subscribe to all subtopics of IDD
-topic = 'IDD/Fall/#'
-
-alertCam = App()
 
 
 #this is the callback that gets called once we connect to the broker. 
@@ -146,6 +139,15 @@ def draw_text(fontsize,strDraw,bgcolor):
         draw.text((x, y), strDraw, font=font, fill="#FFFFFF")
         disp.image(image, rotation)
 
+class App:
+    def __init__(self):
+        self.fall = False
+
+# the # wildcard means we subscribe to all subtopics of IDD
+topic = 'IDD/Fall/#'
+
+alertCam = App()
+
 
 while True:
 
@@ -174,9 +176,6 @@ while True:
         draw_text(20,'Video recorded','green')
     
         break
-        
-    # cam = webCam()
-    # cam.record('fall0.mp4')
 
     
 
