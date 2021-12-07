@@ -170,7 +170,7 @@ while True:
         print('Fall detected')
         draw_text(25, 'Fall Detected', 'red')
         # pygame.mixer.music.play(1)
-        p.play(1)
+        # p.play(1)
         print('recording')
         # 
         os.system('rm recording.mp4')
