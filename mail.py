@@ -5,6 +5,8 @@ from email.mime.image import MIMEImage
 from email.mime.base import MIMEBase
 from email.mime.application import MIMEApplication
 
+# reference: msg.add_header('Content-Disposition', 'attachment', filename=path.split('/')[-1])
+
 # Email you want to send the update from (only works with gmail)
 fromEmail = 'zl.tonyzhong@gmail.com'
 # You can generate an app password here to avoid storing your password in plain text
@@ -30,12 +32,9 @@ def sendEmail():
 	fp = open(path, "rb")
 	mkv = MIMEApplication(fp.read())
 	mkv.add_header('Content-Disposition', 'attachment', filename=path.split('/')[-1])
-	# msg.set_payload(fp.read())
-	# fp.close()
-
-	# encoders.encode_base64(msg)
-	# msg.add_header('Content-Disposition', 'attachment', filename=path.split('/')[-1])
 	msgRoot.attach(mkv)
+
+	
 	
 	# msgText = MIMEText('<img src="/home/pi/test.jpg">', 'html')
 	# msgAlternative.attach(msgText)
