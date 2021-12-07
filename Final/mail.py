@@ -44,7 +44,7 @@ def sendEmail():
 	
 	# msgText = MIMEText('<img src="/home/pi/test.jpg">', 'html')
 	# msgAlternative.attach(msgText)
-
+# 
 	# attachment = "test.jpg"
 	# fp = open(attachment, 'rb')
 	# msgImage = MIMEImage(fp.read())
@@ -59,4 +59,4 @@ def sendEmail():
 	smtp.sendmail(fromEmail, toEmail, msgRoot.as_string())
 	smtp.quit()
 
-sendEmail()
+# sendEmail()
