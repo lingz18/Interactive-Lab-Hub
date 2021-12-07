@@ -16,7 +16,7 @@ fromEmailPassword = 'Lzzhfhd18.!?'
 # Email you want to send the update to
 toEmail = 'lz555@cornell.edu'
 
-sendEmail()
+
 
 
 def sendEmail():
@@ -58,3 +58,5 @@ def sendEmail():
 	smtp.login(fromEmail, fromEmailPassword)
 	smtp.sendmail(fromEmail, toEmail, msgRoot.as_string())
 	smtp.quit()
+
+sendEmail()
