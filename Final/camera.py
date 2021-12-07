@@ -3,7 +3,7 @@ import time
 
 
 class webCam(object):
-	def __init__(self, flip = False, name = name):
+	def __init__(self, flip = False):
 		self.camera = PiCamera()
 		self.camera.resolution = (1280, 720)
 		self.camera.vflip = flip
