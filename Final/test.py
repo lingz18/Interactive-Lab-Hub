@@ -16,8 +16,6 @@ from adafruit_rgb_display.rgb import color565
 import adafruit_rgb_display.st7789 as st7789
 import webcolors
 
-from mail import sendEmail
-
 import paho.mqtt.client as mqtt
 import uuid
 
