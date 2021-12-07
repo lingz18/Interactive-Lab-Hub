@@ -95,7 +95,7 @@ class App:
         self.fall = False
 
 # the # wildcard means we subscribe to all subtopics of IDD
-topic = 'IDD/FallSafe/#'
+topic = 'IDD/Fall/#'
 
 alertCam = App()
 
