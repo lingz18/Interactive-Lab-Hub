@@ -130,8 +130,8 @@ client.connect(
     port=8883)
 
 client.loop_start()
-pygame.mixer.init()
-pygame.mixer.music.load("./Graduate.wav")
+# pygame.mixer.init()
+# pygame.mixer.music.load("./Graduate.wav")
 
 def draw_text(fontsize,strDraw,bgcolor):
         draw.rectangle((0, 0, width, height), outline=0, fill=bgcolor)
@@ -171,6 +171,9 @@ while True:
         draw_text(25, 'Fall Detected', 'red')
         # pygame.mixer.music.play(1)
         # p.play(1)
+        os.system('omxplayer Graduate.wav')
+
+
         print('recording')
         # 
         os.system('rm recording.mp4')
