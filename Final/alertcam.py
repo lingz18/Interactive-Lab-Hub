@@ -84,12 +84,7 @@ def getFont(size):
     font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", size)
     return font
 
-def getRandomXY():
-    x = random.randint(240, size=10)
-    y = random.randint(135, size=10) 
-    return x, y
 
-x, y = getRandomXY()
 
 reset = True
 
