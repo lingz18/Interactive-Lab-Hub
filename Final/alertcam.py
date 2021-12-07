@@ -168,7 +168,7 @@ while True:
         os.system('rm recording.mp4')
         os.system('ffmpeg -f v4l2  -s 1280x720 -t 15 -i /dev/video0 recording.mp4')
         pygame.mixer.music.play(1)
-        draw_text(20,'Video recorded','green'):
+        draw_text(20,'Video recorded','green')
         sendEmail('fall0.mp4')
 
         
