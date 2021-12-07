@@ -16,7 +16,7 @@ fromEmailPassword = 'Lzzhfhd18.!?'
 # Email you want to send the update to
 toEmail = 'lz555@cornell.edu'
 
-
+sendEmail()
 
 
 def sendEmail():
@@ -34,7 +34,7 @@ def sendEmail():
 	os.system('rm recording.mp4')
 	os.system('ffmpeg -f v4l2  -s 1280x720 -t 15 -i /dev/video0 recording.mp4')
 	path = "/home/pi/lingz/Interactive-Lab-Hub/Final/recording.mp4"
-	
+
 	fp = open(path, "rb")
 	mkv = MIMEApplication(fp.read())
 	mkv.add_header('Content-Disposition', 'attachment', filename=path.split('/')[-1])
