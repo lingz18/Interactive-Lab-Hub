@@ -4,7 +4,7 @@ from email.mime.text import MIMEText
 from email.mime.image import MIMEImage
 from email.mime.base import MIMEBase
 from email.mime.application import MIMEApplication
-
+import os
 # reference: msg.add_header('Content-Disposition', 'attachment', filename=path.split('/')[-1])
 
 # Email you want to send the update from (only works with gmail)
@@ -15,6 +15,9 @@ fromEmailPassword = 'Lzzhfhd18.!?'
 
 # Email you want to send the update to
 toEmail = 'lz555@cornell.edu'
+
+os.system('rm recording.mp4')
+os.system('ffmpeg -f v4l2  -s 1280x720 -t 15 -i /dev/video0 recording.mp4')
 
 def sendEmail(fname):
 	msgRoot = MIMEMultipart('related')
