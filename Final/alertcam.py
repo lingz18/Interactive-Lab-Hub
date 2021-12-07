@@ -146,7 +146,7 @@ class App:
 # the # wildcard means we subscribe to all subtopics of IDD
 topic = 'IDD/Fall/#'
 
-alertCam = App()a
+alertCam = App()
 
 
 while True:
