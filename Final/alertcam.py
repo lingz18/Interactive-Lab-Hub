@@ -151,10 +151,20 @@ def draw_text(fontsize,strDraw,bgcolor):
 
 
 while True:
-    draw.rectangle((0, 0, width, height), outline=0, fill=0)
-    draw_text(25, 'Status: Normal', 'green')
+    if not alertCam.fall:
+        draw_text(25, 'Fall Detected', 'red')
+        draw.rectangle((0, 0, width, height), outline=0, fill='green')
+        font = getFont(25)
+        str1 = 'Status: Normal'
+        x_1 = width/2 - font.getsize(str1)[0]/2
+        y_1 = height/2 - font.getsize(str1)[1]/2
+        draw.text((x_1, y_1), str1, font=font, fill="#FFFFFF")
 
-    if alertCam.fall:
+        str2 = 'Stay Safe!'
+        x_2 = width/2 - font.getsize(str2)[0]/2
+        y_1 -= font.getsize(str2)[1]/2
+        draw.text((x_2, y_1), str2, font=font, fill="#FFFFFF")
+    else: 
         draw_text(25, 'Fall Detected', 'red')
 
     disp.image(image, rotation)
