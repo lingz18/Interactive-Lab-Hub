@@ -20,6 +20,8 @@ import os
 # import pygame
 # from camera import webCam
 from mail import sendEmail
+from soundplayer import SoundPlayer
+
 
 # Configuration for CS and DC pins (these are FeatherWing defaults on M0/M4):
 cs_pin = digitalio.DigitalInOut(board.CE0)
@@ -148,7 +150,7 @@ class App:
 topic = 'IDD/Fall/#'
 
 alertCam = App()
-
+p = SoundPlayer("./Graduate.wav", 1) 
 
 while True:
 
@@ -169,6 +171,7 @@ while True:
         print('Fall detected')
         draw_text(25, 'Fall Detected', 'red')
         # pygame.mixer.music.play(1)
+        p.play(1)
         print('recording')
         # 
         os.system('rm recording.mp4')
