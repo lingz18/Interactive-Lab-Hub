@@ -52,9 +52,11 @@ def sendEmail():
 
 	# msgImage.add_header('Content-ID', '<image1>')
 	# msgRoot.attach(msgImage)
-
+	
 	smtp = smtplib.SMTP('smtp.gmail.com', 587)
 	smtp.starttls()
 	smtp.login(fromEmail, fromEmailPassword)
 	smtp.sendmail(fromEmail, toEmail, msgRoot.as_string())
 	smtp.quit()
+
+sendEmail()

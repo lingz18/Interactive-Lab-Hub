@@ -15,7 +15,7 @@ from adafruit_rgb_display.rgb import color565
 import adafruit_rgb_display.st7789 as st7789
 import webcolors
 
-from mail import sendEmail
+
 import os
 import pygame
 # from camera import webCam
@@ -169,7 +169,7 @@ while True:
         draw_text(25, 'Fall Detected', 'red')
         pygame.mixer.music.play(1)
         print('recording')
-        sendEmail()
+        from mail import sendEmail
         # os.system('rm recording.mp4')
         # os.system('ffmpeg -f v4l2  -s 1280x720 -t 15 -i /dev/video0 recording.mp4')
         print('done')
