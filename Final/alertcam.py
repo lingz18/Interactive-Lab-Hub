@@ -17,7 +17,7 @@ import webcolors
 
 
 import os
-import pygame
+# import pygame
 # from camera import webCam
 from mail import sendEmail
 
@@ -171,13 +171,13 @@ while True:
         draw_text(25, 'Fall Detected', 'red')
         # pygame.mixer.music.play(1)
         # p.play(1)
-        os.system('omxplayer Graduate.wav')
+        # os.system('omxplayer Graduate.wav')
 
 
         print('recording')
         # 
         os.system('rm recording.mp4')
-        os.system('ffmpeg -r 24 -f v4l2  -s 1280x720 -t 15 -vf "hflip,vflip" -i /dev/video0 recording.mp4')
+        os.system('ffmpeg -r 24 -f v4l2  -s 1280x720 -t 15 -vf  -i recording.mp4')
         draw_text(20,'Video recorded','green')
 
         sendEmail()
