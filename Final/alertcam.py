@@ -162,7 +162,7 @@ while True:
 
         str2 = 'Stay Safe!'
         x_2 = width/2 - font.getsize(str2)[0]/2
-        y_1 -= font.getsize(str2)[1]/2
+        y_1 -= font.getsize(str2)[1]
         draw.text((x_2, y_1), str2, font=font, fill="#FFFFFF")
     else: 
         draw_text(25, 'Fall Detected', 'red')
