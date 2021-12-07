@@ -2,7 +2,7 @@ import paho.mqtt.client as mqtt
 import uuid
 
 # the # wildcard means we subscribe to all subtopics of IDD
-topic = 'IDD/test'
+topic = 'IDD/test2'
 
 # some other examples
 # topic = 'IDD/a/fun/topic'
