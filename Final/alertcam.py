@@ -154,7 +154,6 @@ alertCam = App()
 while True:
 
     if not alertCam.fall:
-        draw_text(25, 'Fall Detected', 'red')
         draw.rectangle((0, 0, width, height), outline=0, fill='green')
         font = getFont(25)
         str1 = 'Status: Normal'
