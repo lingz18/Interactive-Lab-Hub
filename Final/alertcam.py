@@ -19,6 +19,7 @@ import webcolors
 import os
 import pygame
 # from camera import webCam
+from mail import sendEmail
 
 # Configuration for CS and DC pins (these are FeatherWing defaults on M0/M4):
 cs_pin = digitalio.DigitalInOut(board.CE0)
@@ -169,9 +170,9 @@ while True:
         draw_text(25, 'Fall Detected', 'red')
         pygame.mixer.music.play(1)
         print('recording')
-        from mail import sendEmail
+        # 
         # os.system('rm recording.mp4')
-        # os.system('ffmpeg -f v4l2  -s 1280x720 -t 15 -i /dev/video0 recording.mp4')
+        os.system('ffmpeg -f v4l2  -s 1280x720 -t 15 -i /dev/video0 recording.mp4')
         print('done')
         draw_text(20,'Video recorded','green')
     
