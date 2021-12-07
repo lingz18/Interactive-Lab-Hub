@@ -147,7 +147,7 @@ def draw_text(fontsize,strDraw,bgcolor):
         x = width/2 - font.getsize(strDraw)[0]/2
         y = height/2 - font.getsize(strDraw)[1]/2
         draw.text((x, y), strDraw, font=font, fill="#FFFFFF")
-        disp.image(image, rotation)
+        # disp.image(image, rotation)
 
 
 while True:
@@ -156,5 +156,6 @@ while True:
     if alertCam.fall:
         draw_text(25, 'Fall Detected', 'red')
 
+    disp.image(image, rotation)
     time.sleep(0.01)
                 
