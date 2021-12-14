@@ -5,6 +5,7 @@ from email.mime.image import MIMEImage
 from email.mime.base import MIMEBase
 from email.mime.application import MIMEApplication
 import os
+import ffmpeg
 # reference: msg.add_header('Content-Disposition', 'attachment', filename=path.split('/')[-1])
 
 # Email you want to send the update from (only works with gmail)
@@ -52,7 +53,7 @@ def sendEmail():
 
 	# msgImage.add_header('Content-ID', '<image1>')
 	# msgRoot.attach(msgImage)
-	
+
 	smtp = smtplib.SMTP('smtp.gmail.com', 587)
 	smtp.starttls()
 	smtp.login(fromEmail, fromEmailPassword)
